@@ -1,5 +1,9 @@
 import '@theme/css/globals.css'
 import { META } from '@constants/meta-data'
+// components
+import Logo from '@components/Logo'
+import Nav from '@components/Nav'
+import Provider from '@components/Provider'
 
 export const metadata = META
 
@@ -10,7 +14,10 @@ const RootLayout = ({ children }) => {
         <div className='main'>
           <div className='gradient' />
         </div>
-        <main className='app'>{children}</main>
+        <main className='app'>
+          <Nav />
+          {children}
+        </main>
       </body>
     </html>
   )
