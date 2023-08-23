@@ -1,9 +1,7 @@
 import '@theme/css/globals.css'
+import { META } from '@constants/meta-data'
 
-export const metadata = {
-  title: 'palooZAY',
-  description: 'AI powered Cues for faster queueing',
-}
+export const metadata = META
 
 const RootLayout = ({ children }) => {
   return (
