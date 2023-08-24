@@ -3,10 +3,10 @@ import Image from 'next/image'
 
 const Logo = () => {
   return (
-    <div className='object-contain h-10 p-2'>
-      <h1 className='border-2 head_text text-gray-700 p-2 m-10'>
+    <div className='object-contain h-10 '>
+      <h1 className='border-2 text-xl text-gray-900 p-2 s'>
         paloo
-        <FcStumbleupon className='text-6xl' alt='paloozay logo' />
+        <FcStumbleupon className='text-xl' alt='paloozay logo' />
         ZAY
       </h1>
     </div>

@@ -16,7 +16,7 @@ const RootLayout = ({ children }) => {
         </div>
         <main className='app'>
           <Nav />
-          {children}
+          <div className='container'>{children}</div>
         </main>
       </body>
     </html>
