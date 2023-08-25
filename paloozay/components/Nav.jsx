@@ -16,7 +16,7 @@ import { BUTTONS, ASSETS, MENU } from '@constants'
 const Nav = () => {
   const isUserLoggedIn = true
   const [providers, setProviders] = useState(null)
-  const [toggleMenu, settoggleMenu] = useState(false)
+  const [toggleMenu, setToggleMenu] = useState(false)
 
   useEffect(() => {
     const setProviders = async () => {
@@ -76,13 +76,13 @@ const Nav = () => {
         {isUserLoggedIn ? (
           <div className='flex'>
             <Image
-              src={ASSETS.PROFILE}
+              src={ASSETS.ACCOUNT}
               width={37}
               height={37}
               className='rounded-full'
               alt='profile'
               onClick={() => {
-                settoggleMenu((prev) => !prev)
+                setToggleMenu((prev) => !prev)
               }}
             />
             {toggleMenu && (
@@ -90,10 +90,17 @@ const Nav = () => {
                 <Link
                   href={SubLink.ACCOUNT}
                   className='dropdown_link'
-                  onClick={() => settoggleMenu(false)}
+                  onClick={() => setToggleMenu(false)}
                 >
                   {MENU.ACCOUNT}
                 </Link>
+                {/* <Link
+                  href={SubLink.CREATE_PROMPT}
+                  className='dropdown_link'
+                  onClick={() => setToggleMenu(false)}
+                >
+                  {MENU.ACCOUNT}
+                </Link> */}
               </div>
             )}
           </div>
