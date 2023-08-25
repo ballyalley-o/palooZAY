@@ -11,7 +11,7 @@ const Home = () => {
       <div className=' text-center'>
         <span>
           <h2 className='text-8xl orange_gradient text-center text-gray-700 font-light'>
-            Easy AI prompts
+            EASY <b>AI</b> PROMPTS
           </h2>
         </span>
         <br className='max-md:hidden' />
