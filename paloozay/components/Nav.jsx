@@ -44,7 +44,7 @@ const Nav = () => {
             </button>
             <Link href={SubLink.ACCOUNT}>
               <Image
-                src={ASSETS.PROFILE}
+                src={ASSETS.ACCOUNT}
                 width={37}
                 height={37}
                 className='rounded-full'
@@ -94,13 +94,23 @@ const Nav = () => {
                 >
                   {MENU.ACCOUNT}
                 </Link>
-                {/* <Link
+                <Link
                   href={SubLink.CREATE_PROMPT}
                   className='dropdown_link'
                   onClick={() => setToggleMenu(false)}
                 >
-                  {MENU.ACCOUNT}
-                </Link> */}
+                  {MENU.CREATE_PROMPT}
+                </Link>
+                <button
+                  type='button'
+                  onClick={() => {
+                    setToggleMenu(false)
+                    signOut()
+                  }}
+                  className='mt-5 w-full outline_btn'
+                >
+                  {BUTTONS.SIGN_OUT}
+                </button>
               </div>
             )}
           </div>
