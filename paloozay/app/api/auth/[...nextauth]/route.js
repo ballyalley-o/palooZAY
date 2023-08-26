@@ -24,7 +24,7 @@ const handler = NextAuth({
     session.user.id = sessionUser._id.toString()
     return session
   },
-  async signIn({ profile }) {
+  async signIn({ account }) {
     try {
       await connectToDb()
       // check if user exists

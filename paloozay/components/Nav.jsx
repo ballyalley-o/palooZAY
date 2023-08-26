@@ -14,27 +14,26 @@ import { SubLink } from '@routes'
 import { BUTTONS, ASSETS, MENU } from '@constants'
 
 const Nav = () => {
-  const isUserLoggedIn = true
+  const { data: session } = useSession()
   const [providers, setProviders] = useState(null)
   const [toggleMenu, setToggleMenu] = useState(false)
 
   useEffect(() => {
-    const setProviders = async () => {
+    const setUseProviders = async () => {
       const response = await getProviders()
 
       setProviders(response)
     }
-    setProviders()
+    setUseProviders()
   }, [providers])
   return (
     <nav className='flex-between w-full mb-16 bg-black mt-5'>
       <Link href='/' className='flex  gap-2 flex-center'>
         <Logo />
       </Link>
-
       {/* desktop */}
       <div className='sm:flex hidden'>
-        {isUserLoggedIn ? (
+        {session?.user ? (
           <div className='flex gap-3 md:gap-5'>
             <Link href={SubLink.CREATE_PROMPT} className='black_btn'>
               {BUTTONS.CREATE_PROMPT}
@@ -44,7 +43,7 @@ const Nav = () => {
             </button>
             <Link href={SubLink.ACCOUNT}>
               <Image
-                src={ASSETS.ACCOUNT}
+                src={session?.user.image}
                 width={37}
                 height={37}
                 className='rounded-full'
@@ -61,22 +60,22 @@ const Nav = () => {
                   key={provider.name}
                   onClick={() => {
                     signIn(provider.id)
-                    classNames = 'black_btn'
+                    classNames = 'outline_btn'
                   }}
+                  className='outline_btn'
                 >
-                  BUTTONS.SIGN_IN
+                  {BUTTONS.SIGN_IN}
                 </button>
               ))}
           </>
         )}
       </div>
-
       {/* mobile */}
       <div className='sm:hidden flex relative'>
-        {isUserLoggedIn ? (
+        {session?.user ? (
           <div className='flex'>
             <Image
-              src={ASSETS.ACCOUNT}
+              src={session?.user.image}
               width={37}
               height={37}
               className='rounded-full'
@@ -124,7 +123,7 @@ const Nav = () => {
                   onClick={() => {
                     signIn(provider.id)
                   }}
-                  classNames='black_btn'
+                  className='outline_btn'
                 >
                   {BUTTONS.SIGN_IN}
                 </button>
