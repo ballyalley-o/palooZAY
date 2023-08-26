@@ -8,6 +8,7 @@ import { GLOBAL } from '@config'
 import { connectToDb } from '@utils/db'
 // utils
 import logger from '@utils/logger'
+import { randomUsername } from '@utils/generate-username'
 
 const handler = NextAuth({
   providers: [
@@ -16,33 +17,35 @@ const handler = NextAuth({
       clientSecret: GLOBAL.GOOGLE_AUTH.clientSecret,
     }),
   ],
-  async session({ session }) {
-    const sessionUser = await User.findOne({
-      email: session.user.email,
-    })
+  callbacks: {
+    async session({ session }) {
+      const sessionUser = await User.findOne({
+        email: session.user.email,
+      })
 
-    session.user.id = sessionUser._id.toString()
-    return session
-  },
-  async signIn({ account }) {
-    try {
-      await connectToDb()
-      // check if user exists
-      const userExists = await User.findOne({ email: account.email })
+      session.user.id = sessionUser._id.toString()
+      return session
+    },
+    async signIn({ profile }) {
+      console.log(profile)
+      try {
+        await connectToDb()
 
-      // if not, create a new user
-      if (!userExists) {
-        await User.create({
-          email: account.email,
-          username: account.name.replace(' ', '.').toLowerCase(),
-          image: account.picture,
-        })
+        const userExists = await User.findOne({ email: profile.email })
+
+        if (!userExists) {
+          await User.create({
+            email: profile?.email,
+            username: randomUsername(profile?.name),
+            image: profile.picture,
+          })
+        }
+        return true
+      } catch (error) {
+        logger.error(error.message)
+        return false
       }
-      return true
-    } catch (error) {
-      logger.error(error.message)
-      return false
-    }
+    },
   },
 })
 

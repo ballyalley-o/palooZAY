@@ -60,7 +60,6 @@ const Nav = () => {
                   key={provider.name}
                   onClick={() => {
                     signIn(provider.id)
-                    classNames = 'outline_btn'
                   }}
                   className='outline_btn'
                 >
