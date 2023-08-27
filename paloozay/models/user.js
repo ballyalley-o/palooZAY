@@ -2,7 +2,7 @@ import { Schema, model, models } from 'mongoose'
 // constants
 import { SNACKS, regEx } from '@constants'
 
-const userSchema = new Schema({
+const UserSchema = new Schema({
   email: {
     type: String,
     required: [true, SNACKS.EMAIL.required],
@@ -18,6 +18,6 @@ const userSchema = new Schema({
   },
 })
 
-const User = models.User || model('User', userSchema)
+const User = models.User || model('User', UserSchema)
 
 export default User

@@ -1,5 +1,7 @@
+import { META } from '@constants/meta-data'
+
 const GLOBAL = {
-  API_URL: 'http://localhost:3000/api/v1',
+  API_URL: process.env.API_URL_DEV,
   GOOGLE_AUTH: {
     clientId: process.env.GOOGLE_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
@@ -12,6 +14,7 @@ const GLOBAL = {
     user: process.env.MongoDB_USER,
     pass: process.env.MongoDB_PASS,
   },
+  META,
 }
 
 export default GLOBAL

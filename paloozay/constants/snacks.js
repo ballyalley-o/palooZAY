@@ -11,6 +11,13 @@ const SNACKS = {
     invalid:
       'Username must be 8-20 characters long and can only contain letters and numbers',
   },
+  PROMPT: {
+    required: 'Prompt content is required',
+  },
+
+  TAG: {
+    required: 'Atleast 1 Tag is required',
+  },
 }
 
 export default SNACKS
