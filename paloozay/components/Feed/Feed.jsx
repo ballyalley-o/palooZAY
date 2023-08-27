@@ -1,14 +1,27 @@
 'use client'
 import { useState, useEffect } from 'react'
 // components
-import { Prompt } from '@components/Prompt'
+import { Prompt, PromptList } from '@components/Prompt'
+// routes
+import { PATH } from '@routes'
+// utils
+import logger from '@utils/logger'
 
 const Feed = () => {
   const [searchText, setSearchText] = useState('')
+  const [feed, setFeed] = useState([])
 
   const handleSearch = (e) => {
     setSearchText(e.target.value)
   }
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await fetch(PATH.feed)
+      const data = await response.json()
+      setFeed(data)
+    }
+  }, [searchText])
 
   return (
     <section className='feed'>
@@ -22,6 +35,7 @@ const Feed = () => {
           className='search_input peer'
         />
       </form>
+      <PromptList data={feed} onChange={() => {}} />
     </section>
   )
 }

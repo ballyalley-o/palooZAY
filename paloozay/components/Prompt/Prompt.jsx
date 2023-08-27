@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Prompt = () => {
+const Prompt = ({ onChange }) => {
   return <div>Prompt</div>
 }
 

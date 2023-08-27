@@ -16,14 +16,15 @@ const API = {
   },
 }
 
-const apiPath = (path, parentPath) => {
+const apiPath = (parentPath, path) => {
   return API.root + parentPath + path
 }
 
 const PATH = {
   home: '/',
   createPrompt: SubLink.path + SubLink.CREATE_PROMPT,
-  new: apiPath(API.prompt.new, API.prompt.path),
+  new: apiPath(API.prompt.path, API.prompt.new),
+  feed: apiPath(API.prompt.path),
 }
 
 export default SubLink
