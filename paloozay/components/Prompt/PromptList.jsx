@@ -11,8 +11,8 @@ import { Prompt } from '@components/Prompt'
 const PromptList = ({ data, onChange }) => {
   return (
     <div className='mt-16 prompt_layout'>
-      {data.map((post) => (
-        <Prompt key={post.id} data={post} onChange={onChange} />
+      {data.map((feed) => (
+        <Prompt key={feed._id} post={feed} onChange={onChange} />
       ))}
     </div>
   )

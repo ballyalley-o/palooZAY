@@ -1,3 +1,5 @@
+const HOME = '/'
+
 const SubLink = {
   path: '/sublink',
   CREATE_PROMPT: '/create-prompt',
@@ -17,11 +19,11 @@ const API = {
 }
 
 const apiPath = (parentPath, path) => {
-  return API.root + parentPath + path
+  return API.root + parentPath + (path || '')
 }
 
 const PATH = {
-  home: '/',
+  home: HOME,
   createPrompt: SubLink.path + SubLink.CREATE_PROMPT,
   new: apiPath(API.prompt.path, API.prompt.new),
   feed: apiPath(API.prompt.path),

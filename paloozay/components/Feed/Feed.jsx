@@ -6,6 +6,7 @@ import { Prompt, PromptList } from '@components/Prompt'
 import { PATH } from '@routes'
 // utils
 import logger from '@utils/logger'
+import { toast } from 'react-toastify'
 
 const Feed = () => {
   const [searchText, setSearchText] = useState('')
@@ -21,7 +22,15 @@ const Feed = () => {
       const data = await response.json()
       setFeed(data)
     }
-  }, [searchText])
+
+    console.log('fetching posts', feed)
+    try {
+      fetchPosts()
+    } catch (error) {
+      toast.error(error)
+      logger.error(error)
+    }
+  }, [])
 
   return (
     <section className='feed'>

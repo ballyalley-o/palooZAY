@@ -26,7 +26,7 @@ const handler = NextAuth({
       session.user.id = sessionUser._id.toString()
       return session
     },
-    async signIn({ profile }) {
+    async signIn({ account, profile, user, credentials }) {
       console.log(profile)
       try {
         await connectToDb()
@@ -37,7 +37,7 @@ const handler = NextAuth({
           await User.create({
             email: profile?.email,
             username: randomUsername(profile?.name),
-            image: profile.picture,
+            image: profile?.picture,
           })
         }
         return true

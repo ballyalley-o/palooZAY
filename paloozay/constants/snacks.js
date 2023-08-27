@@ -13,6 +13,8 @@ const SNACKS = {
   },
   PROMPT: {
     required: 'Prompt content is required',
+    notFound: 'Prompts not found',
+    found: 'Prompts found',
   },
 
   TAG: {
