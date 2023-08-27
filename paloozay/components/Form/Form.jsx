@@ -18,7 +18,7 @@ const Form = ({ type, post, setPost, submit, onSubmit }) => {
       <form
         onSubmit={onSubmit}
         action=''
-        className='mt-10 w-full max-w-2xl flex flex-col gap-7 glass'
+        className='mt-10 w-full max-w-2xl flex flex-col gap-7 border border-outline bg-transparent p-5 rounded-2xl border-gray-800'
       >
         <label htmlFor=''>
           <span className='text-lighter text-base text-gray-200'>

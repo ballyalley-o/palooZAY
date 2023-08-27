@@ -1,7 +1,7 @@
 import { StyledHome } from '@theme/styles/default'
 import Logo from '@components/Logo'
 // components
-import Feed from '@components/Feed'
+import Feed from '@components/Feed/Feed'
 // constants
 import { DESC } from '@constants/meta-data'
 
@@ -19,7 +19,7 @@ const Home = () => {
           <p className='desc text-center font-light'>{DESC}</p>
         </div>
       </div>
-      {/* Feed */}
+      <Feed />
     </section>
   )
 }

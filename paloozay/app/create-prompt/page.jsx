@@ -15,6 +15,7 @@ import logger from '@utils/logger'
 const CreatePrompt = () => {
   const [submit, setSubmit] = useState(false)
   const [post, setPost] = useState(INITIAL_STATE.CREATE_PROMPT)
+  const { data: session } = useSession()
   const router = useRouter()
 
   const createPrompt = async (e) => {
