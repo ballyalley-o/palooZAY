@@ -23,4 +23,5 @@ const PromptTagAndContent = ({ post }) => {
 PromptTagAndContent.propTypes = {
   post: PropTypes.object,
 }
+
 export default PromptTagAndContent

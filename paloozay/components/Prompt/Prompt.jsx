@@ -32,8 +32,8 @@ const Prompt = ({ post, onSubmit, onEdit, onDelete }) => {
     <div className={_.StyledPromptMainDiv}>
       <div className={_.StyledPromptDiv}>
         <PromptContent post={post} />
-        <div>
-          <Tooltip content={copied === post.prompt ? 'Copied' : 'Copy'}>
+        <div className=''>
+          <Tooltip content={copied === post.prompt ? 'Copied!' : 'Copy'}>
             <button
               type='button'
               className={copied ? _.StyledPreTooltip : _.StyledPostTooltip}

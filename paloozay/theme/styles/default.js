@@ -13,7 +13,7 @@ export const StyledContentWrapperDiv = classNames('flex flex-col')
 export const StyledImage = classNames('rounded-full object-contain')
 
 // tooltip
-export const StyledPreTooltip = classNames('text-orange-500')
+export const StyledPreTooltip = classNames('text-gray-200 btn')
 export const StyledPostTooltip = classNames('btn text-gray-100')
 
 export const StyledUserNameP = classNames('font-semibold vice')
@@ -22,5 +22,5 @@ export const StyledPromptContentP = classNames(
   'my-4 font-satoshi text-md text-gray-200'
 )
 export const StyledTagContentP = classNames(
-  'font-inter text-sm text-gray-300 cursor-pointer'
+  'font-inter text-sm text-gray-200 cursor-pointer'
 )
