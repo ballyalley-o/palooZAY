@@ -5,14 +5,18 @@ import logger from '@utils/logger'
 import { GLOBAL } from '@config'
 
 let isConnected = false
+let isSnoozed = true
 
 export const connectToDb = async () => {
   mongoose.set('strictQuery', true)
 
   logger.info('=> MONGODB STATUS: Connecting...')
+  isSnoozed = false
+  logger.snoozeOff('=> MONGODB STATUS: Snooze MODE OFF')
 
   if (isConnected) {
     logger.success('=> MONGODB STATUS: Connected')
+
     return
   }
 
@@ -22,10 +26,13 @@ export const connectToDb = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
-
+    isSnoozed = false
     isConnected = true
     logger.success('=> MONGODB STATUS: Connected')
   } catch (error) {
     logger.error(`=> MONGODB STATUS: ${error.message}`)
+  } finally {
+    isSnoozed = true
+    logger.snooze('=> MONGODB STATUS: Snooze MODE ON')
   }
 }

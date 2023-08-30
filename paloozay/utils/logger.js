@@ -16,6 +16,12 @@ const logger = {
   mongo: (message) => {
     console.log(colors.bgMagenta(message))
   },
+  snooze: (message) => {
+    console.log(colors.red(message))
+  },
+  snoozeOff: (message) => {
+    console.log(colors.blue(message))
+  },
 }
 
 export default logger
