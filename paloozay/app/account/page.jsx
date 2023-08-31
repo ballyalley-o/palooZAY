@@ -31,7 +31,7 @@ const MyAccount = () => {
   }, [])
   return (
     <Account
-      name='Account'
+      name={session?.user.name}
       content='Welcome to your Account'
       data={feed}
       onEdit={handleEdit}
