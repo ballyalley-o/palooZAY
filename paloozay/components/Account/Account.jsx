@@ -15,8 +15,8 @@ const Account = ({ name, content, data, onEdit, onDelete }) => {
           <Prompt
             key={feed._id}
             post={feed}
-            onChange={onChange}
             onEdit={() => onEdit && onEdit(post)}
+            onDelete={() => onDelete && onDelete(post)}
           />
         ))}
       </div>

@@ -17,7 +17,9 @@ export const StyledPreTooltip = classNames('text-gray-200 btn')
 export const StyledPostTooltip = classNames('btn text-gray-100')
 
 export const StyledUserNameP = classNames('font-semibold vice')
-export const StyledEmailCardP = classNames('font-inter text-sm text-gray-200')
+export const StyledEmailCardP = classNames(
+  'font-inter text-xs text-gray-200 italic opacity-10 text-light'
+)
 export const StyledPromptContentP = classNames('prompt_content')
 export const StyledTagContentP = classNames(
   'font-inter text-sm text-gray-200 cursor-pointer'

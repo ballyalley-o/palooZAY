@@ -27,7 +27,7 @@ const Nav = () => {
     setUseProviders()
   }, [providers])
   return (
-    <nav className='flex-between w-full mb-16 bg-black mt-5'>
+    <nav className='flex-between w-full mb-20 bg-black mt-5'>
       <Link href='/' className='flex  gap-2 flex-center'>
         <Logo />
       </Link>
@@ -55,16 +55,18 @@ const Nav = () => {
           <>
             {providers &&
               Object.values(providers).map((provider) => (
-                <button
-                  type='button'
-                  key={provider.name}
-                  onClick={() => {
-                    signIn(provider.id)
-                  }}
-                  className='outline_btn'
-                >
-                  {BUTTONS.SIGN_IN}
-                </button>
+                <div className='flex gap-3 md:gap-5'>
+                  <button
+                    type='button'
+                    key={provider.name}
+                    onClick={() => {
+                      signIn(provider.id)
+                    }}
+                    className='outline_btn'
+                  >
+                    {BUTTONS.SIGN_IN}
+                  </button>
+                </div>
               ))}
           </>
         )}
@@ -116,16 +118,18 @@ const Nav = () => {
           <>
             {providers &&
               Object.values(providers).map((provider) => (
-                <button
-                  type='button'
-                  key={provider.name}
-                  onClick={() => {
-                    signIn(provider.id)
-                  }}
-                  className='outline_btn'
-                >
-                  {BUTTONS.SIGN_IN}
-                </button>
+                <div className='flex gap-3 md:gap-5'>
+                  <button
+                    type='button'
+                    key={provider.name}
+                    onClick={() => {
+                      signIn(provider.id)
+                    }}
+                    className='mt-5 w-full outline_btn'
+                  >
+                    {BUTTONS.SIGN_IN}
+                  </button>
+                </div>
               ))}
           </>
         )}
