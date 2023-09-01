@@ -15,6 +15,8 @@ const SNACKS = {
     required: 'Prompt content is required',
     notFound: 'Prompts not found',
     found: 'Prompts found',
+    updated: 'Prompt updated',
+    deleted: 'Prompt deleted',
   },
 
   TAG: {

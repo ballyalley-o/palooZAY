@@ -44,7 +44,12 @@ const Prompt = ({ post, onSubmit, onEdit, onDelete }) => {
           </Tooltip>
         </div>
       </div>
-      <PromptTagAndContent post={post} />
+      <PromptTagAndContent
+        session={session}
+        post={post}
+        onEdit={onEdit}
+        onDelete={onDelete}
+      />
     </div>
   )
 }

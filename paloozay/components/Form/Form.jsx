@@ -9,11 +9,11 @@ const Form = ({ type, post, setPost, submit, onSubmit }) => {
     <section className='w-full max-w-full flex-start flex-col'>
       <h1 className='head_text text-center'>
         <span className='vice'>
-          CREATE & <b>ZAY</b> IT!
+          {type} & <b>ZAY</b> IT!
         </span>
       </h1>
       <p className='desc text-center max-w-md font-light'>
-        {_types[type].description}
+        {_types[type]?.description}
       </p>
       <form
         onSubmit={onSubmit}

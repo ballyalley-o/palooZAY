@@ -11,8 +11,11 @@ import { Account } from '@components/Account'
 const MyAccount = () => {
   const { data: session } = useSession()
   const [feed, setFeed] = useState([])
+  const router = useRouter()
 
-  const handleEdit = () => {}
+  const handleEdit = (Feed) => {
+    router.push(PATH.updatePrompt(Feed._id))
+  }
   const handleDelete = async () => {}
 
   useEffect(() => {
