@@ -17,7 +17,7 @@ const API = {
     all: '/all',
     get: (id) => `/${id}`,
     create: '/create',
-    update: (id) => `/update?id=${id}`,
+    update: (id) => `/update?id=${id.toString()}`,
   },
   user: {
     path: '/users',
@@ -38,7 +38,7 @@ const PATH = {
   createPrompt: SubLink.path + SubLink.CREATE_PROMPT,
   getPrompt: (id) => apiPath(API.prompt.path, API.prompt.get(id)),
   updatePrompt: (id) => API.prompt.path + API.prompt.update(id),
-  // updatePrompt: (id) => API.prompt.path + API.prompt.update(id),
+  deletePrompt: (id) => apiPath(API.prompt.path, API.prompt.get(id)),
   new: apiPath(API.prompt.path, API.prompt.new),
   feed: apiPath(API.prompt.path),
   users: apiPath(API.user.path, API.user.user),

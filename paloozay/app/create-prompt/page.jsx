@@ -33,7 +33,7 @@ const CreatePrompt = () => {
       })
 
       if (response.ok) {
-        router.push('/')
+        router.push(PATH.home)
       }
     } catch (error) {
       logger.error(error)

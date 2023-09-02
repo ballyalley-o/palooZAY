@@ -1,13 +1,46 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
+// components
+import HashTagInput from '@components/Form/HashTagInput'
 // constants
 import { _types } from '@constants'
 
 const Form = ({ type, post, setPost, submit, onSubmit }) => {
+  const [input, setInput] = useState(post.tag || '')
+
+  useEffect(() => {
+    setInput(post.tag || '')
+  }, [post])
+
+  const handleOnChange = (e) => {
+    setInput(e.target.value)
+  }
+
+  const handleKeyPress = (e) => {
+    if (e.key === ' ' && input.trim() !== '') {
+      const words = input.split(' ')
+      const lastWord = words[words.length - 1]
+
+      if (!lastWord.startsWith('#')) {
+        words[words.length - 1] = '#' + lastWord
+        const updatedTag = words.join(' ')
+        setInput(updatedTag)
+      }
+      if (post.tag) {
+        words[words.length - 1] = '#' + lastWord
+        const updatedTag =
+          post.tag + ' ' + words[words.length - 1].replace('#', '')
+
+        setPost({ ...post, tag: updatedTag })
+        setInput(updatedTag)
+      }
+    }
+  }
+
   return (
-    <section className='w-full max-w-full flex-start flex-col'>
-      <h1 className='head_text text-center'>
+    <section className='w-full  flex-start flex-col mx-10'>
+      <h1 className='head_text text-center '>
         <span className='vice'>
           {type} & <b>ZAY</b> IT!
         </span>
@@ -36,15 +69,12 @@ const Form = ({ type, post, setPost, submit, onSubmit }) => {
         {/* tags */}
         <label htmlFor=''>
           <span className='text-lighter text-base text-gray-200'>
-            TAG {` `}
-            <span> (#product, #web)</span>
+            TAGS (optional)
           </span>
-          <input
-            value={post.tag}
-            onChange={(e) => setPost({ ...post, tag: e.target.value })}
-            placeholder='#tags'
-            required
-            className='form_input'
+          <HashTagInput
+            value={input}
+            onKeyPress={handleKeyPress}
+            onChange={handleOnChange}
           />
         </label>
         <div className='flex-end mx-3mb-5 gap-4'>
@@ -56,7 +86,7 @@ const Form = ({ type, post, setPost, submit, onSubmit }) => {
             disabled={submit}
             className='px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white'
           >
-            {submit ? `${type} ... ` : type}
+            {submit ? `CONFIRM ${type} ... ` : type}
           </button>
         </div>
       </form>

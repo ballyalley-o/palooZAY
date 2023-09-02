@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
+import { useSession } from 'next-auth/react'
 // routes
 import { PATH } from '@routes'
 // components
@@ -10,10 +11,12 @@ import { Form } from '@components/Form'
 import { INITIAL_STATE } from '@constants'
 // utils
 import logger from '@utils/logger'
+import { toast } from 'react-toastify'
 
 const EditPrompt = () => {
   const [submit, setSubmit] = useState(false)
   const [post, setPost] = useState(INITIAL_STATE.CREATE_PROMPT)
+  const { data: session } = useSession()
   const router = useRouter()
   const searchParams = useSearchParams()
   const promptId = searchParams.get('id')
@@ -28,13 +31,41 @@ const EditPrompt = () => {
     if (promptId) fetchPrompt()
   }, [promptId])
 
+  const updatePrompt = async (e) => {
+    e.preventDefault()
+    setSubmit(true)
+
+    if (!promptId) return toast.error('No prompt id found')
+
+    try {
+      const response = await fetch(PATH.getPrompt(promptId), {
+        method: 'PATCH',
+        body: JSON.stringify({
+          prompt: post.prompt,
+          tag: post.tag,
+        }),
+      })
+
+      if (response.ok) {
+        router.push(PATH.home)
+      }
+    } catch (err) {
+      logger.error(err)
+      toast.error(err)
+
+      return new Response(JSON.stringify(err), { status: 500 })
+    } finally {
+      setSubmit(false)
+    }
+  }
+
   return (
     <Form
-      type='Edit'
+      type='EDIT'
       post={post}
       setPost={setPost}
       submit={submit}
-      onSubmit={() => {}}
+      onSubmit={updatePrompt}
     />
   )
 }

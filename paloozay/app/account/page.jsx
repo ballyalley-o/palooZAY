@@ -7,6 +7,10 @@ import { useRouter } from 'next/navigation'
 import { PATH } from '@routes'
 // components
 import { Account } from '@components/Account'
+// constants
+import { SNACKS } from '@constants'
+// utils
+import logger from '@utils/logger'
 
 const MyAccount = () => {
   const { data: session } = useSession()
@@ -15,8 +19,27 @@ const MyAccount = () => {
 
   const handleEdit = (Feed) => {
     router.push(PATH.updatePrompt(Feed._id))
+    console.log(PATH.updatePrompt(Feed._id), 'EDIT PATH')
   }
-  const handleDelete = async () => {}
+  const handleDelete = async (Feed) => {
+    const confirmed = confirm(SNACKS.CONFIRM.delete_prompt)
+
+    if (confirmed) {
+      try {
+        await fetch(PATH.deletePrompt(Feed.id), {
+          method: 'DELETE',
+        })
+
+        console.log(feed, 'feed')
+
+        const filteredFeed = feed.filter((post) => post.id !== Feed.id)
+
+        setFeed(filteredFeed)
+      } catch (error) {
+        logger.error(error)
+      }
+    }
+  }
 
   useEffect(() => {
     const fetchPosts = async () => {

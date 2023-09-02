@@ -18,6 +18,9 @@ const SNACKS = {
     updated: 'Prompt updated',
     deleted: 'Prompt deleted',
   },
+  CONFIRM: {
+    delete_prompt: 'Are you sure you want to delete this prompt?',
+  },
 
   TAG: {
     required: 'Atleast 1 Tag is required',

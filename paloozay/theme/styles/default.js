@@ -4,7 +4,7 @@ export const StyledHome = classNames('w-full flex-center m-auto flex-col')
 // prompts
 export const StyledPromptMainDiv = classNames('prompt_card')
 export const StyledPromptDiv = classNames(
-  'flex justify-between items-start gap-5'
+  'flex justify-between items-start gap-5 w-full'
 )
 export const StyledPromptWrapperDiv = classNames(
   'flex-1 flex justify-start items-center gap-3 cursor-pointer'

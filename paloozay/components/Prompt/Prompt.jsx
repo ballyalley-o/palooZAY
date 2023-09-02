@@ -14,7 +14,7 @@ import { TiTick } from 'react-icons/ti'
 // styles
 import * as _ from '@theme/styles'
 
-const Prompt = ({ post, onSubmit, onEdit, onDelete }) => {
+const Prompt = ({ post, onSubmit, onEdit, onDelete, tooltip }) => {
   const [submit, setSubmit] = useState(false)
   const [copied, setCopied] = useState('')
 
@@ -33,7 +33,9 @@ const Prompt = ({ post, onSubmit, onEdit, onDelete }) => {
       <div className={_.StyledPromptDiv}>
         <PromptContent post={post} />
         <div className=''>
-          <Tooltip content={copied === post.prompt ? 'Copied!' : 'Copy'}>
+          <Tooltip
+            content={(copied === post.prompt ? 'Copied!' : 'Copy') || tooltip}
+          >
             <button
               type='button'
               className={copied ? _.StyledPreTooltip : _.StyledPostTooltip}
