@@ -8,11 +8,16 @@ import { Prompt } from '@components/Prompt'
  * @param {function} onChange
  * @returns
  */
-const PromptList = ({ data, onChange }) => {
+const PromptList = ({ data, onChange, handleTagClick }) => {
   return (
     <div className='mt-16 prompt_layout'>
       {data.map((feed) => (
-        <Prompt key={feed._id} post={feed} onChange={onChange} />
+        <Prompt
+          key={feed._id}
+          post={feed}
+          onChange={onChange}
+          handleTagClick={handleTagClick}
+        />
       ))}
     </div>
   )

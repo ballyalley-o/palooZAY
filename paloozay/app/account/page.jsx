@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 // routes
 import { PATH } from '@routes'
 // components
@@ -13,8 +13,9 @@ import { SNACKS } from '@constants'
 import logger from '@utils/logger'
 
 const MyAccount = () => {
-  const { data: session } = useSession()
   const [feed, setFeed] = useState([])
+  const [userData, setUserData] = useState(null)
+  const { data: session } = useSession()
   const router = useRouter()
 
   const handleEdit = (Feed) => {
@@ -51,9 +52,26 @@ const MyAccount = () => {
       logger.error(error.message)
     }
   }, [])
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const response = await fetch(PATH.users(session?.user.id.toString()))
+      const data = await response.json()
+      setUserData(data)
+    }
+
+    try {
+      if (session?.user.id) fetchUser()
+    } catch (error) {
+      logger.error(error.message)
+    }
+  }, [feed])
+
+  const User = userData?.find((i) => i._id === session?.user.id)
+
   return (
     <Account
-      name={session?.user.name}
+      name={User?.username}
       content='Welcome to your Account'
       data={feed}
       onEdit={handleEdit}

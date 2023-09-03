@@ -2,23 +2,22 @@ import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 // components
-import HashTagInput from '@components/Form/HashTagInput'
+import { FormButtons, HashTagInput } from '@components/Form'
 // constants
 import { _types } from '@constants'
 
 const Form = ({ type, post, setPost, submit, onSubmit }) => {
   const [input, setInput] = useState(post.tag || '')
 
-  const { tag, prompt } = post
-  const tagString = tag.toString()
+  const { tag } = post
+  const tagString = tag?.toString()
 
   useEffect(() => {
     setInput(tagString || '')
   }, [tagString])
 
   const handleKeyPress = (e) => {
-    if (e.key === ' ' && input.trim() !== '') {
-      e.preventDefault()
+    if (e.key === ' ') {
       const words = input.split(' ')
       const lastWord = words[words.length - 1]
 
@@ -26,10 +25,8 @@ const Form = ({ type, post, setPost, submit, onSubmit }) => {
         words[words.length - 1] = '#' + lastWord
         const updatedTag = words.join(' ')
 
-        console.log(updatedTag, 'updatedTag')
-
         setInput(updatedTag)
-        setPost({ ...post.tag, tag: updatedTag })
+        setPost({ ...post, tag: updatedTag })
       }
     }
   }
@@ -78,18 +75,7 @@ const Form = ({ type, post, setPost, submit, onSubmit }) => {
             onChange={handleOnChange}
           />
         </label>
-        <div className='flex-end mx-3mb-5 gap-4'>
-          <Link href='/' className='text-gray-200 text-sm'>
-            CANCEL
-          </Link>
-          <button
-            type='submit'
-            disabled={submit}
-            className='px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white'
-          >
-            {submit ? `CONFIRM ${type} ... ` : type}
-          </button>
-        </div>
+        <FormButtons submit={submit} type={type} />
       </form>
     </section>
   )

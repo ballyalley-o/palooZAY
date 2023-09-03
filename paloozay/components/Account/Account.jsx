@@ -12,7 +12,7 @@ const Account = ({ name, content, data, onEdit, onDelete }) => {
     <ProtectedRoute>
       <section className='w-full'>
         <h1 className='head_text text-left blue_gradient'>
-          <span>{accountName(name)} Account</span>
+          <span>{name}</span>
         </h1>
         <p className='desc text-left border-t text-white mb-2'>{content}</p>
         <div className='mt-10 prompt_layout'>

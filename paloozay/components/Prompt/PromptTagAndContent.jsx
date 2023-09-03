@@ -11,10 +11,16 @@ import Tooltip from '@components/Tooltip'
 import { BiEditAlt } from 'react-icons/bi'
 import { RiDeleteBinLine } from 'react-icons/ri'
 
-const PromptTagAndContent = ({ session, post, onEdit, onDelete }) => {
+const PromptTagAndContent = ({
+  session,
+  post,
+  onEdit,
+  onDelete,
+  handleTagClick,
+}) => {
   const pathName = usePathname()
   const router = useRouter()
-  const handleTagClick = (tag) => {}
+
   return (
     <>
       <p className={_.StyledPromptContentP}>{post.prompt}</p>
@@ -26,7 +32,7 @@ const PromptTagAndContent = ({ session, post, onEdit, onDelete }) => {
       >
         {post.tag}
       </p>
-      {session?.user.id === post.creator._id &&
+      {session?.user.id === post.creator?._id &&
         pathName === SubLink.ACCOUNT && (
           <div className='mt-5 flex-end gap-4  border-gray-100 pt-3'>
             <Tooltip content='Edit'>

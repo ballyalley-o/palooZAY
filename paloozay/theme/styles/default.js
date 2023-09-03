@@ -36,3 +36,12 @@ export const StyledTagContentP = classNames(
 export const StyledFeedForm = classNames('relative w-full flex-center')
 export const StyledFeedInput = classNames('search_input peer')
 export const StyledFeed = classNames('feed')
+
+/**
+ * @root { @components/Form}
+ */
+export const StyledFormDiv = classNames('flex-end mx-3mb-5 gap-4')
+export const StyledFormButton = classNames(
+  'px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white'
+)
+export const StyledFormCancelButton = classNames('text-gray-200 text-sm')

@@ -16,7 +16,6 @@ export const POST = async (req) => {
     })
 
     await newPrompt.save()
-
     return new Response(JSON.stringify(newPrompt), {
       status: 201,
     })

@@ -35,7 +35,7 @@ const Feed = () => {
     const regex = new RegExp(searchText, 'i')
     return feed.filter(
       (i) =>
-        regex.test(i.creator.username) ||
+        regex.test(i.creator?.username) ||
         regex.test(i.prompt) ||
         regex.test(i.tag)
     )
@@ -64,9 +64,9 @@ const Feed = () => {
     <section className={_.StyledFeed}>
       <FeedForm value={searchText} onChange={handleSearch} />
       {searchText ? (
-        <PromptList data={searchResults} onChange={handleTag} />
+        <PromptList data={searchResults} handleTagClick={handleTag} />
       ) : (
-        <PromptList data={feed} onChange={handleTag} />
+        <PromptList data={feed} handleTagClick={handleTag} />
       )}
     </section>
   )

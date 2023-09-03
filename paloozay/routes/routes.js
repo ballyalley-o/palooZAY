@@ -41,7 +41,7 @@ const PATH = {
   deletePrompt: (id) => apiPath(API.prompt.path, API.prompt.get(id)),
   new: apiPath(API.prompt.path, API.prompt.new),
   feed: apiPath(API.prompt.path),
-  users: apiPath(API.user.path, API.user.user),
+  users: (id) => apiPath(API.user.path, API.user.user(id)),
   user_posts: (id) => apiPath(API.user.path, API.user.user_posts(id)),
 }
 

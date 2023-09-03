@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import PropTypes from 'prop-types'
-import Image from 'next/image'
 import { useSession } from 'next-auth/react'
 import { usePathname, useRouter } from 'next/navigation'
 // components
@@ -14,7 +13,14 @@ import { TiTick } from 'react-icons/ti'
 // styles
 import * as _ from '@theme/styles'
 
-const Prompt = ({ post, onSubmit, onEdit, onDelete, tooltip }) => {
+const Prompt = ({
+  post,
+  onSubmit,
+  onEdit,
+  onDelete,
+  tooltip,
+  handleTagClick,
+}) => {
   const [submit, setSubmit] = useState(false)
   const [copied, setCopied] = useState('')
 
@@ -51,6 +57,7 @@ const Prompt = ({ post, onSubmit, onEdit, onDelete, tooltip }) => {
         post={post}
         onEdit={onEdit}
         onDelete={onDelete}
+        handleTagClick={handleTagClick}
       />
     </div>
   )
