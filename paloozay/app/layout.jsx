@@ -1,4 +1,5 @@
 import '@theme/css/globals.css'
+import 'react-toastify/dist/ReactToastify.css'
 import { META } from '@constants/meta-data'
 // components
 import Logo from '@components/Logo'

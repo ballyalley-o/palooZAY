@@ -17,7 +17,7 @@ const API = {
     all: '/all',
     get: (id) => `/${id}`,
     create: '/create',
-    update: (id) => `/update?id=${id.toString()}`,
+    update: (id) => `/update?id=${id}`,
   },
   user: {
     path: '/users',

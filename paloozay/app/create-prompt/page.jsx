@@ -36,7 +36,7 @@ const CreatePrompt = () => {
         router.push(PATH.home)
       }
     } catch (error) {
-      logger.error(error)
+      logger.error(error.message)
     } finally {
       setSubmit(false)
     }

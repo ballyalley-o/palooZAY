@@ -23,12 +23,10 @@ const Feed = () => {
       setFeed(data)
     }
 
-    console.log('fetching posts', feed)
     try {
       fetchPosts()
     } catch (error) {
-      toast.error(error)
-      logger.error(error)
+      logger.error(error.message)
     }
   }, [])
 

@@ -35,7 +35,7 @@ const EditPrompt = () => {
     e.preventDefault()
     setSubmit(true)
 
-    if (!promptId) return toast.error('No prompt id found')
+    if (!promptId) return alert('No prompt id found')
 
     try {
       const response = await fetch(PATH.getPrompt(promptId), {
@@ -49,11 +49,8 @@ const EditPrompt = () => {
       if (response.ok) {
         router.push(PATH.home)
       }
-    } catch (err) {
-      logger.error(err)
-      toast.error(err)
-
-      return new Response(JSON.stringify(err), { status: 500 })
+    } catch (error) {
+      logger.error(error.message)
     } finally {
       setSubmit(false)
     }

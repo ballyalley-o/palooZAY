@@ -21,7 +21,7 @@ export const POST = async (req) => {
       status: 201,
     })
   } catch (error) {
-    logger.error(error)
-    return new Response(JSON.stringify(error), { status: 500 })
+    logger.error(error.message)
+    return new Response('Internal Server Error', { status: 500 })
   }
 }

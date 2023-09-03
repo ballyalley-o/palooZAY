@@ -8,7 +8,6 @@ const HashTagInput = ({ value, onChange, onKeyPress }) => {
         value={value}
         onChange={onChange}
         onKeyPress={onKeyPress}
-        // placeholder='Write your Tags here...'
         className='form_input'
       />
     </div>

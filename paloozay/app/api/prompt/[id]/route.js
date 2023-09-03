@@ -13,9 +13,8 @@ export const GET = async (req, { params }) => {
     const prompt = await Prompt.findById(params.id).populate('creator')
 
     if (!prompt) {
-      //   toast.error(SNACKS.PROMPT.notFound)
       logger.error(SNACKS.PROMPT.notFound)
-      return new Response(JSON.stringify({ message: SNACKS.PROMPT.notFound }), {
+      return new Response(SNACKS.PROMPT.notFound, {
         status: 404,
       })
     }
@@ -25,8 +24,8 @@ export const GET = async (req, { params }) => {
       status: 200,
     })
   } catch (error) {
-    logger.error(error)
-    return new Response(JSON.stringify(error), { status: 500 })
+    logger.error(error.message)
+    return new Response('Internal Server Error', { status: 500 })
   }
 }
 
@@ -39,9 +38,9 @@ export const PATCH = async (req, { params }) => {
     const updatePrompt = await Prompt.findById(params.id)
 
     if (!updatePrompt) {
-      //   toast.error(SNACKS.PROMPT.notFound)
+      //   toast.(SNACKS.PROMPT.notFound)
       logger.error(SNACKS.PROMPT.notFound)
-      return new Response(JSON.stringify({ message: SNACKS.PROMPT.notFound }), {
+      return new Response(SNACKS.PROMPT.notFound, {
         status: 404,
       })
     }
@@ -50,33 +49,26 @@ export const PATCH = async (req, { params }) => {
 
     await updatePrompt.save()
 
-    // toast.success(SNACKS.PROMPT.updated)
     return new Response(JSON.stringify(updatePrompt), {
       status: 200,
     })
-  } catch (err) {
-    logger.error(err)
+  } catch (error) {
+    logger.error(error.message)
 
-    return new Response(JSON.stringify(err), { status: 500 })
+    return new Response('Internal Server Error', { status: 500 })
   }
 }
 
 export const DELETE = async (req, { params }) => {
-  const { prompt, tag } = await req.json()
-
   try {
     await connectToDb()
     await Prompt.findByIdAndRemove(params.id)
 
-    toast.success(SNACKS.PROMPT.deleted)
-
-    return new Response(JSON.stringify({ message: SNACKS.PROMPT.deleted }), {
+    return new Response(SNACKS.PROMPT.deleted, {
       status: 200,
     })
-  } catch (err) {
-    logger.error(err)
-    toast.error(err)
-
-    return new Response(JSON.stringify(err), { status: 500 })
+  } catch (error) {
+    logger.error(error)
+    return new Response('Internal Server Error', { status: 500 })
   }
 }

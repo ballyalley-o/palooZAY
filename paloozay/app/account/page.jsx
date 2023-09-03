@@ -19,24 +19,21 @@ const MyAccount = () => {
 
   const handleEdit = (Feed) => {
     router.push(PATH.updatePrompt(Feed._id))
-    console.log(PATH.updatePrompt(Feed._id), 'EDIT PATH')
   }
   const handleDelete = async (Feed) => {
     const confirmed = confirm(SNACKS.CONFIRM.delete_prompt)
 
     if (confirmed) {
       try {
-        await fetch(PATH.deletePrompt(Feed.id), {
+        await fetch(PATH.deletePrompt(Feed._id), {
           method: 'DELETE',
         })
 
-        console.log(feed, 'feed')
-
-        const filteredFeed = feed.filter((post) => post.id !== Feed.id)
+        const filteredFeed = feed.filter((post) => post._id !== Feed._id)
 
         setFeed(filteredFeed)
       } catch (error) {
-        logger.error(error)
+        logger.error(error.message)
       }
     }
   }
@@ -51,8 +48,7 @@ const MyAccount = () => {
     try {
       if (session?.user.id) fetchPosts()
     } catch (error) {
-      toast.error(error)
-      logger.error(error)
+      logger.error(error.message)
     }
   }, [])
   return (

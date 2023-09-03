@@ -9,33 +9,34 @@ import { _types } from '@constants'
 const Form = ({ type, post, setPost, submit, onSubmit }) => {
   const [input, setInput] = useState(post.tag || '')
 
-  useEffect(() => {
-    setInput(post.tag || '')
-  }, [post])
+  const { tag, prompt } = post
+  const tagString = tag.toString()
 
-  const handleOnChange = (e) => {
-    setInput(e.target.value)
-  }
+  useEffect(() => {
+    setInput(tagString || '')
+  }, [tagString])
 
   const handleKeyPress = (e) => {
     if (e.key === ' ' && input.trim() !== '') {
+      e.preventDefault()
       const words = input.split(' ')
       const lastWord = words[words.length - 1]
 
       if (!lastWord.startsWith('#')) {
         words[words.length - 1] = '#' + lastWord
         const updatedTag = words.join(' ')
-        setInput(updatedTag)
-      }
-      if (post.tag) {
-        words[words.length - 1] = '#' + lastWord
-        const updatedTag =
-          post.tag + ' ' + words[words.length - 1].replace('#', '')
 
-        setPost({ ...post, tag: updatedTag })
+        console.log(updatedTag, 'updatedTag')
+
         setInput(updatedTag)
+        setPost({ ...post.tag, tag: updatedTag })
       }
     }
+  }
+
+  const handleOnChange = (e) => {
+    const newTag = e.target.value
+    setInput(newTag)
   }
 
   return (

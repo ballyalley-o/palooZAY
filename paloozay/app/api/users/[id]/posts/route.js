@@ -2,7 +2,6 @@ import { connectToDb } from '@utils/db'
 import { Prompt } from '@models'
 // utils
 import logger from '@utils/logger'
-import { toast } from 'react-toastify'
 // constants
 import { SNACKS } from '@constants'
 
@@ -14,9 +13,8 @@ export const GET = async (req, { params }) => {
     }).populate('creator')
 
     if (!prompts) {
-      toast.error(SNACKS.PROMPT.notFound)
       logger.error(SNACKS.PROMPT.notFound)
-      return new Response(JSON.stringify({ message: SNACKS.PROMPT.notFound }), {
+      return new Response(SNACKS.PROMPT.notFound, {
         status: 404,
       })
     }
@@ -25,7 +23,7 @@ export const GET = async (req, { params }) => {
       status: 200,
     })
   } catch (error) {
-    logger.error(error)
-    return new Response(JSON.stringify(error), { status: 500 })
+    logger.error(error.message)
+    return new Response(error.message, { status: 500 })
   }
 }

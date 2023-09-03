@@ -13,9 +13,8 @@ export const GET = async (req) => {
     const prompts = await Prompt.find({}).populate('creator')
 
     if (!prompts) {
-      toast.error(SNACKS.PROMPT.notFound)
       logger.error(SNACKS.PROMPT.notFound)
-      return new Response(JSON.stringify({ message: SNACKS.PROMPT.notFound }), {
+      return new Response(SNACKS.PROMPT.notFound, {
         status: 404,
       })
     }
@@ -24,7 +23,7 @@ export const GET = async (req) => {
       status: 200,
     })
   } catch (error) {
-    logger.error(error)
-    return new Response(JSON.stringify(error), { status: 500 })
+    logger.error(error.message)
+    return new Response('Internal Server Error', { status: 500 })
   }
 }
