@@ -55,7 +55,7 @@ const Nav = () => {
           <>
             {providers &&
               Object.values(providers).map((provider) => (
-                <div className='flex gap-3 md:gap-5'>
+                <div className='flex gap-3 md:gap-5' key={provider.id}>
                   <button
                     type='button'
                     key={provider.name}
