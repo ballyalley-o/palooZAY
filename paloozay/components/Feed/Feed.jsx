@@ -2,6 +2,9 @@
 import { useState, useEffect } from 'react'
 // components
 import { PromptList } from '@components/Prompt'
+import { FeedForm } from '.'
+// styles
+import * as _ from '@theme/styles'
 // routes
 import { PATH } from '@routes'
 // utils
@@ -58,17 +61,8 @@ const Feed = () => {
   }
 
   return (
-    <section className='feed'>
-      <form className='relative w-full flex-center'>
-        <input
-          type='text'
-          placeholder='Look for prompts and by tags or key names'
-          value={searchText}
-          onChange={handleSearch}
-          required
-          className='search_input peer'
-        />
-      </form>
+    <section className={_.StyledFeed}>
+      <FeedForm value={searchText} onChange={handleSearch} />
       {searchText ? (
         <PromptList data={searchResults} onChange={handleTag} />
       ) : (

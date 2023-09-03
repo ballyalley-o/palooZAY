@@ -8,6 +8,9 @@ const _types = {
     description: 'A New Prompt to share to the world, ZAY IT!',
     button: 'CREATE',
   },
+  FEED: {
+    search: 'What are you searching for?',
+  },
 }
 
 export default _types

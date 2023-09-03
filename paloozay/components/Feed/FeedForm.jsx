@@ -1,15 +1,21 @@
 import React from 'react'
+// styles
+import * as _ from '@theme/styles'
+// constants
+import { _types } from '@constants'
+// components
+import { FaSearch } from 'react-icons/fa'
 
 const FeedForm = ({ value, onChange }) => {
   return (
-    <form className='relative w-full flex-center'>
+    <form className={_.StyledFeedForm}>
       <input
+        required
         type='text'
-        placeholder='Look for prompts and by tags or key names'
+        placeholder={_types.FEED.search}
         value={value}
         onChange={onChange}
-        required
-        className='search_input peer'
+        className={_.StyledFeedInput}
       />
     </form>
   )
