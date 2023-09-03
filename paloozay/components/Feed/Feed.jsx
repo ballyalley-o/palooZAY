@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 // components
-import { Prompt, PromptList } from '@components/Prompt'
+import { PromptList } from '@components/Prompt'
 // routes
 import { PATH } from '@routes'
 // utils
@@ -9,12 +9,10 @@ import logger from '@utils/logger'
 import { toast } from 'react-toastify'
 
 const Feed = () => {
-  const [searchText, setSearchText] = useState('')
   const [feed, setFeed] = useState([])
-
-  const handleSearch = (e) => {
-    setSearchText(e.target.value)
-  }
+  const [searchText, setSearchText] = useState('')
+  const [searchTimeout, setSearchTimeout] = useState(null)
+  const [searchResults, setSearchResults] = useState([])
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -30,6 +28,35 @@ const Feed = () => {
     }
   }, [])
 
+  const filterPrompts = (searchText) => {
+    const regex = new RegExp(searchText, 'i')
+    return feed.filter(
+      (i) =>
+        regex.test(i.creator.username) ||
+        regex.test(i.prompt) ||
+        regex.test(i.tag)
+    )
+  }
+
+  const handleSearch = (e) => {
+    clearTimeout(searchTimeout)
+    setSearchText(e.target.value)
+
+    setSearchTimeout(
+      setTimeout(() => {
+        const searchResult = filterPrompts(e.target.value)
+        setSearchResults(searchResult)
+      })
+    )
+  }
+
+  const handleTag = (tag) => {
+    setSearchText(tag)
+
+    const searchResult = filterPrompts(tag)
+    setSearchResults(searchResult)
+  }
+
   return (
     <section className='feed'>
       <form className='relative w-full flex-center'>
@@ -42,7 +69,11 @@ const Feed = () => {
           className='search_input peer'
         />
       </form>
-      <PromptList data={feed} onChange={() => {}} />
+      {searchText ? (
+        <PromptList data={searchResults} onChange={handleTag} />
+      ) : (
+        <PromptList data={feed} onChange={handleTag} />
+      )}
     </section>
   )
 }
