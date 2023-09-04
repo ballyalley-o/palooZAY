@@ -15,8 +15,6 @@ import accountName from '@utils/accountName'
 
 const UserAccount = ({ params }) => {
   const [userFeed, setUserFeed] = useState([])
-  const searchParams = useSearchParams()
-  const { data: session } = useSession()
 
   useEffect(() => {
     const fetchPosts = async () => {

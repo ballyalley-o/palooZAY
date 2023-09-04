@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { useSession } from 'next-auth/react'
 // routes
 import { PATH } from '@routes'
 // components
@@ -11,12 +10,10 @@ import { Form } from '@components/Form'
 import { INITIAL_STATE } from '@constants'
 // utils
 import logger from '@utils/logger'
-import { toast } from 'react-toastify'
 
 const EditPrompt = () => {
   const [submit, setSubmit] = useState(false)
   const [post, setPost] = useState(INITIAL_STATE.CREATE_PROMPT)
-  const { data: session } = useSession()
   const router = useRouter()
   const searchParams = useSearchParams()
   const promptId = searchParams.get('id')
