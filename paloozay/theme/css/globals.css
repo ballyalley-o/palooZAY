@@ -202,6 +202,10 @@
 .nav_mobile_wrapper {
   @apply sm:flex hidden;
 }
+
+.nav_mobile {
+  @apply sm:hidden flex relative;
+}
 /* PromptCard Component */
 .prompt_card {
   @apply flex-1 break-inside-avoid rounded-lg  bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[460px] w-full h-fit;

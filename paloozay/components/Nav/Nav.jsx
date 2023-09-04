@@ -2,24 +2,19 @@
 
 import React from 'react'
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
 // components
 import {
+  NavLogo,
   NavMember,
-  NavMobileMenu,
   NavMobileMember,
   AuthButton,
+  NavMobile,
+  NavDesktop,
 } from '@components/Nav'
-import Image from 'next/image'
-import Logo from '@components/Logo'
 // styles
 import * as _ from '@theme/styles'
 // auth
-import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
-// routes
-import { SubLink, PATH } from '@routes'
-// constants
-import { BUTTONS, ASSETS, MENU } from '@constants'
+import { useSession, getProviders } from 'next-auth/react'
 
 const Nav = () => {
   const { data: session } = useSession()
@@ -35,12 +30,10 @@ const Nav = () => {
   }, [providers])
   return (
     <nav className={_.StyledNav}>
-      <Link href={PATH.home} className={_.StyledLogoLink}>
-        <Logo />
-      </Link>
+      <NavLogo />
 
       {/* desktop */}
-      <div className={_.StyledWrapperDiv}>
+      <NavDesktop>
         {session?.user ? (
           <NavMember />
         ) : (
@@ -51,10 +44,10 @@ const Nav = () => {
               ))}
           </>
         )}
-      </div>
+      </NavDesktop>
 
       {/* mobile */}
-      <div className='sm:hidden flex relative'>
+      <NavMobile>
         {session?.user ? (
           <NavMobileMember />
         ) : (
@@ -65,7 +58,7 @@ const Nav = () => {
               ))}
           </>
         )}
-      </div>
+      </NavMobile>
     </nav>
   )
 }
