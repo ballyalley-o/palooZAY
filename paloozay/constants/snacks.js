@@ -17,6 +17,7 @@ const SNACKS = {
     found: 'Prompts found',
     updated: 'Prompt updated',
     deleted: 'Prompt deleted',
+    placeholder: 'What do you want to write about?',
   },
   CONFIRM: {
     delete_prompt: 'Are you sure you want to delete this prompt?',

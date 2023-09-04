@@ -3,7 +3,7 @@
 // components
 import { ProtectedRoute } from '@components/Protect'
 import { Prompt } from '@components/Prompt'
-import { AccountTitleAndDesc } from '@components/Account'
+import { AccountTitleAndDesc, AccountPromptWrapper } from '@components/Account'
 // styles
 import * as _ from '@theme/styles'
 

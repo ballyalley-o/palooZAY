@@ -1,23 +1,19 @@
-import { StyledHome } from '@theme/styles/default'
+import * as _ from '@theme/styles'
 import Logo from '@components/Logo'
 // components
-import Feed from '@components/Feed/Feed'
+import { Feed } from '@components/Feed'
+import { MetaDesc } from '@components/Meta'
+import { MainLabel } from '@components/Home'
 // constants
 import { DESC } from '@constants/meta-data'
+import { _types } from '@constants'
 
 const Home = () => {
   return (
-    <section className={StyledHome}>
-      <div className=' text-center'>
-        <span>
-          <h2 className='text-8xl orange_gradient text-center text-gray-700 font-light'>
-            EASY <b>AI</b> PROMPTS
-          </h2>
-        </span>
-        <br className='max-md:hidden' />
-        <div className=''>
-          <p className='desc text-center font-light'>{DESC}</p>
-        </div>
+    <section className={_.StyledHome}>
+      <div className={_.StyledHomeContainer}>
+        <MainLabel />
+        <MetaDesc />
       </div>
       <Feed />
     </section>

@@ -1,6 +1,9 @@
 import classNames from 'classnames'
 
-export const StyledHome = classNames('w-full flex-center m-auto flex-col')
+export const StyledHome = classNames('_home')
+export const StyledHomeH2 = classNames('_home_main-h2')
+export const StyledHomeContainer = classNames('text-center')
+export const StyledHomeDescP = classNames('_home_desc-p')
 
 /**
  * @root { @components/Prompt}
@@ -12,7 +15,7 @@ export const StyledPromptDiv = classNames(
 export const StyledPromptWrapperDiv = classNames(
   'flex-1 flex justify-start items-center gap-3 cursor-pointer'
 )
-export const StyledContentWrapperDiv = classNames('flex flex-col')
+export const StyledContentWrapperDiv = classNames('prompt_detail-div')
 export const StyledImage = classNames('rounded-full object-contain')
 
 /**
@@ -40,7 +43,11 @@ export const StyledFeed = classNames('feed')
 /**
  * @root { @components/Form}
  */
+export const StyledForm = classNames('form_wrapper')
+export const StyledFormSection = classNames('form_section')
 export const StyledFormDiv = classNames('flex-end mx-3mb-5 gap-4')
+export const StyledFormLabelH1 = classNames('form_label-h1')
+export const StyledFormDescP = classNames('form_desc-p')
 export const StyledFormButton = classNames(
   'px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white'
 )

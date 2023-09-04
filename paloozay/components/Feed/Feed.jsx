@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 // components
 import { PromptList } from '@components/Prompt'
-import { FeedForm } from '.'
+import { FeedForm } from '@components/Feed'
 // styles
 import * as _ from '@theme/styles'
 // routes

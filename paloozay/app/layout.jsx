@@ -2,7 +2,7 @@ import '@theme/css/globals.css'
 import 'react-toastify/dist/ReactToastify.css'
 import { META } from '@constants/meta-data'
 // components
-import Meta from '@components/Meta'
+import { Meta } from '@components/Meta'
 import { Nav } from '@components/Nav'
 import MainGradient from '@components/MainGradient'
 import Provider from '@components/Provider'

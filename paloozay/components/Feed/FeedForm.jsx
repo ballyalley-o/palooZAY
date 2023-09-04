@@ -3,8 +3,6 @@ import React from 'react'
 import * as _ from '@theme/styles'
 // constants
 import { _types } from '@constants'
-// components
-import { FaSearch } from 'react-icons/fa'
 
 const FeedForm = ({ value, onChange }) => {
   return (
