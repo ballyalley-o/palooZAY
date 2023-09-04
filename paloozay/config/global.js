@@ -7,6 +7,7 @@ const LANG = {
 }
 
 const GLOBAL = {
+  META,
   API_URL: process.env.API_URL_DEV,
   LOCALE: LANG.en,
   GOOGLE_AUTH: {
@@ -21,7 +22,7 @@ const GLOBAL = {
     user: process.env.MongoDB_USER,
     pass: process.env.MongoDB_PASS,
   },
-  META,
+  ACCOUNT_ICON_SIZE: { width: 37, height: 37 },
 }
 
 export default GLOBAL

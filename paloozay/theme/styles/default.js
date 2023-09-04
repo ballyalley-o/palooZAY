@@ -49,7 +49,9 @@ export const StyledFormCancelButton = classNames('text-gray-200 text-sm')
 /**
  * @root { @components/Nav}
  */
-export const StyledNav = classNames('flex-between w-full mb-20 bg-black mt-5')
+export const StyledNav = classNames('nav_main')
 export const StyledLogoLink = classNames('flex gap-2 flex-center')
-export const StyledWrapperDiv = classNames('sm:flex hidden')
-export const StyledMenuWrapperDiv = classNames('flex gap-3 md:gap-5')
+export const StyledWrapperDiv = classNames('nav_mobile_wrapper')
+export const StyledMenuWrapperDiv = classNames('nav_wrapper_btn')
+export const StyledMobileMenuBtn = classNames('mt-5 w-full outline_btn')
+export const StyledSignOutBtn = classNames('nav_signOut')

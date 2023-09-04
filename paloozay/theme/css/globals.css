@@ -187,6 +187,21 @@
   @apply text-sm font-inter text-gray-700 hover:text-gray-500 font-medium;
 }
 
+.nav_main {
+  @apply flex-between w-full mb-20 bg-black mt-5;
+}
+
+.nav_wrapper_btn {
+  @apply flex gap-3 md:gap-5;
+}
+
+.nav_signOut {
+  @apply border-t text-lg uppercase vice mt-5  hover:text-black;
+}
+
+.nav_mobile_wrapper {
+  @apply sm:flex hidden;
+}
 /* PromptCard Component */
 .prompt_card {
   @apply flex-1 break-inside-avoid rounded-lg  bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[460px] w-full h-fit;
