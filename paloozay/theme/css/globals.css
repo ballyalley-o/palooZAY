@@ -206,6 +206,18 @@
 .nav_mobile {
   @apply sm:hidden flex relative;
 }
+
+.account_name {
+  @apply head_text text-left blue_gradient;
+}
+
+.account_content-p {
+  @apply desc text-left border-t text-white mb-2;
+}
+
+.account_prompt-div {
+  @apply mt-10 prompt_layout;
+}
 /* PromptCard Component */
 .prompt_card {
   @apply flex-1 break-inside-avoid rounded-lg  bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[460px] w-full h-fit;

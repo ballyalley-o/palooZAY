@@ -3,18 +3,16 @@
 // components
 import { ProtectedRoute } from '@components/Protect'
 import { Prompt } from '@components/Prompt'
-// util
-import accountName from '@utils/accountName'
+import { AccountTitleAndDesc } from '@components/Account'
+// styles
+import * as _ from '@theme/styles'
 
 const Account = ({ name, content, data, onEdit, onDelete }) => {
   return (
     <ProtectedRoute>
       <section className='w-full'>
-        <h1 className='head_text text-left blue_gradient'>
-          <span>{name}</span>
-        </h1>
-        <p className='desc text-left border-t text-white mb-2'>{content}</p>
-        <div className='mt-10 prompt_layout'>
+        <AccountTitleAndDesc name={name} content={content} />
+        <AccountPromptWrapper>
           {data.map((feed) => (
             <Prompt
               key={feed._id}
@@ -23,7 +21,7 @@ const Account = ({ name, content, data, onEdit, onDelete }) => {
               onDelete={() => onDelete && onDelete(feed)}
             />
           ))}
-        </div>
+        </AccountPromptWrapper>
       </section>
     </ProtectedRoute>
   )

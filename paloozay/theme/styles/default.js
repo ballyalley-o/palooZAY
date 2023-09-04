@@ -56,3 +56,10 @@ export const StyledMenuWrapperDiv = classNames('nav_wrapper_btn')
 export const StyledMobileMenuBtn = classNames('mt-5 w-full outline_btn')
 export const StyledSignOutBtn = classNames('nav_signOut')
 export const StyledMobileDiv = classNames('nav_mobile')
+
+/**
+ * @root { @components/Account}
+ */
+export const StyledAccount = classNames('account_name')
+export const StyledAccountContentP = classNames('account_content-p')
+export const StyledAccountPromptDiv = classNames('account_prompt-div')

@@ -1,4 +1,5 @@
 'use client'
+
 import { useState, useEffect } from 'react'
 // components
 import { PromptList } from '@components/Prompt'
@@ -9,7 +10,6 @@ import * as _ from '@theme/styles'
 import { PATH } from '@routes'
 // utils
 import logger from '@utils/logger'
-import { toast } from 'react-toastify'
 
 const Feed = () => {
   const [feed, setFeed] = useState([])
