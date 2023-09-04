@@ -6,10 +6,12 @@ import Link from 'next/link'
 // components
 import Image from 'next/image'
 import Logo from '@components/Logo'
+// styles
+import * as _ from '@theme/styles'
 // auth
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
 // routes
-import { SubLink } from '@routes'
+import { SubLink, PATH } from '@routes'
 // constants
 import { BUTTONS, ASSETS, MENU } from '@constants'
 
@@ -27,15 +29,16 @@ const Nav = () => {
     setUseProviders()
   }, [providers])
   return (
-    <nav className='flex-between w-full mb-20 bg-black mt-5'>
-      <Link href='/' className='flex  gap-2 flex-center'>
+    <nav className={_.StyledNav}>
+      <Link href={PATH.home} className={_.StyledLogoLink}>
         <Logo />
       </Link>
+
       {/* desktop */}
-      <div className='sm:flex hidden'>
+      <div className={_.StyledWrapperDiv}>
         {session?.user ? (
-          <div className='flex gap-3 md:gap-5'>
-            <Link href={SubLink.CREATE_PROMPT} className='black_btn'>
+          <div className={_.StyledMenuWrapperDiv}>
+            <Link href={PATH.createPrompt} className='black_btn'>
               {BUTTONS.CREATE_PROMPT}
             </Link>
             <button type='button' onClick={signOut} className='outline_btn'>

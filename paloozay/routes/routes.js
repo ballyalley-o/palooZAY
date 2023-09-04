@@ -2,8 +2,6 @@ const HOME = '/'
 
 const SubLink = {
   path: '/sublink',
-  CREATE_PROMPT: '/create-prompt',
-  UPDATE_PROMPT: (id) => `/${id}`,
   ACCOUNT: '/account',
   SIGN_IN: '/sign-in',
   SIGN_OUT: '/sign-out',
@@ -35,7 +33,7 @@ const apiPath = (parentPath, path) => {
 
 const PATH = {
   home: HOME,
-  createPrompt: SubLink.path + SubLink.CREATE_PROMPT,
+  createPrompt: API.prompt.path + API.prompt.create,
   getPrompt: (id) => apiPath(API.prompt.path, API.prompt.get(id)),
   updatePrompt: (id) => API.prompt.path + API.prompt.update(id),
   deletePrompt: (id) => apiPath(API.prompt.path, API.prompt.get(id)),

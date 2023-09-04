@@ -2,26 +2,23 @@ import '@theme/css/globals.css'
 import 'react-toastify/dist/ReactToastify.css'
 import { META } from '@constants/meta-data'
 // components
-import Logo from '@components/Logo'
-import Nav from '@components/Nav'
+import Meta from '@components/Meta'
+import { Nav } from '@components/Nav'
+import MainGradient from '@components/MainGradient'
 import Provider from '@components/Provider'
 import Toast from '@components/ToastContainer'
+// constants
+import { GLOBAL } from '@config'
 
 export const metadata = META
 
 const RootLayout = ({ children }) => {
   return (
-    <html lang='en'>
-      <head>
-        <meta charSet='utf-8' />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <link rel='shortcut icon' href='../assets/icons/paloozay.ico' />
-      </head>
+    <html lang={GLOBAL.LOCALE}>
+      <Meta />
       <body>
         <Provider>
-          <div className='main'>
-            <div className='gradient' />
-          </div>
+          <MainGradient />
           <main className='app'>
             <Nav />
             <div>{children}</div>

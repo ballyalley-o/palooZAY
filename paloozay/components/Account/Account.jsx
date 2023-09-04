@@ -1,6 +1,5 @@
 'use client'
 
-import PropTypes from 'prop-types'
 // components
 import { ProtectedRoute } from '@components/Protect'
 import { Prompt } from '@components/Prompt'

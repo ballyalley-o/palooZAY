@@ -1,7 +1,14 @@
 import { META } from '@constants/meta-data'
 
+const LANG = {
+  en: 'en',
+  es: 'es',
+  fr: 'fr',
+}
+
 const GLOBAL = {
   API_URL: process.env.API_URL_DEV,
+  LOCALE: LANG.en,
   GOOGLE_AUTH: {
     clientId: process.env.GOOGLE_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,

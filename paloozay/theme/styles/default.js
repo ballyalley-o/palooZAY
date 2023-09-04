@@ -45,3 +45,11 @@ export const StyledFormButton = classNames(
   'px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white'
 )
 export const StyledFormCancelButton = classNames('text-gray-200 text-sm')
+
+/**
+ * @root { @components/Nav}
+ */
+export const StyledNav = classNames('flex-between w-full mb-20 bg-black mt-5')
+export const StyledLogoLink = classNames('flex gap-2 flex-center')
+export const StyledWrapperDiv = classNames('sm:flex hidden')
+export const StyledMenuWrapperDiv = classNames('flex gap-3 md:gap-5')
