@@ -37,19 +37,23 @@ export const StyledPromptDiv = classNames(
 export const StyledPromptWrapperDiv = classNames(
   'flex-1 flex justify-start items-center gap-3 cursor-pointer'
 )
+
 export const StyledContentWrapperDiv = classNames('prompt_detail-div')
 export const StyledImage = classNames('rounded-full object-contain')
-
+export const StyledTooltipWrapper = classNames('prompt_content-wrapper')
+export const StyledTrashTooltip = classNames('prompt_card-trash')
+export const StyledEditTooltip = classNames('prompt_card-edit')
 /**
  * @root { @components/Tooltip}
  */
 export const StyledPreTooltip = classNames('text-gray-200 btn')
 export const StyledPostTooltip = classNames('btn text-gray-100')
+export const StyledTooltipWrapperDiv = classNames('tooltip_wrapper')
 
 export const StyledUserNameP = classNames('font-semibold vice')
 export const StyledEmailCardP = classNames('prompt_content-email')
 export const StyledPromptContentP = classNames('prompt_content')
-export const StyledTagContentP = classNames()
+export const StyledTagContentP = classNames('prompt_card-tag ')
 
 /**
  * @root { @components/Feed}
@@ -63,14 +67,15 @@ export const StyledFeed = classNames('feed')
  */
 export const StyledForm = classNames('form_wrapper')
 export const StyledFormSection = classNames('form_section')
-export const StyledFormDiv = classNames('flex-end mx-3mb-5 gap-4')
+export const StyledFormDiv = classNames('flex-end mx-3 mb-5 gap-4 ')
 export const StyledFormLabelH1 = classNames('form_label-h1')
 export const StyledFormLabelSpan = classNames('form_label')
 export const StyledFormDescP = classNames('form_desc-p')
 export const StyledFormButton = classNames(
-  'px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white'
+  'px-5 py-1.5 text-sm bg-primary-orange rounded-full btn orange_gradient border-2 m-2'
 )
-export const StyledFormCancelButton = classNames('text-gray-200 text-sm')
+export const StyledFormTextarea = classNames('form_styled-textarea')
+export const StyledFormCancelButton = classNames('discard_btn')
 
 /**
  * @root { @components/Nav}

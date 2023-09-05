@@ -6,7 +6,7 @@ const _types = {
     description: 'AI powered Cues for faster queueing',
   },
   CREATE: {
-    label: (type) => `${type} & ${(<b>ZAY</b>)} IT!`,
+    label: (type) => `${type} & ZAY IT!`,
     description: 'A New Prompt to share to the world, ZAY IT!',
     button: 'CREATE',
   },

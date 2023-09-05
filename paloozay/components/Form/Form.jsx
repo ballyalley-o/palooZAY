@@ -42,20 +42,21 @@ const Form = ({ type, post, setPost, submit, onSubmit }) => {
     <section className={_.StyledFormSection}>
       <FormLabel type={type} />
       <form onSubmit={onSubmit} action='' className={_.StyledForm}>
-        <label htmlFor=''>
+        <label htmlFor='prompt'>
           <span className={_.StyledFormLabelSpan}>PROMPT FORM</span>
           <textarea
+            id='prompt'
             value={post.prompt}
             onChange={(e) => setPost({ ...post, prompt: e.target.value })}
             placeholder={SNACKS.PROMPT.placeholder}
             required
-            className='form_textarea'
+            className={_.StyledFormTextarea}
           />
         </label>
 
         {/* tags */}
         <label htmlFor=''>
-          <span className={_.StyledFormLabelSpan}>TAGS (optional)</span>
+          <span className={_.StyledFormLabelSpan}>TAGS</span>
           <HashTagInput
             value={input}
             onKeyPress={handleKeyPress}

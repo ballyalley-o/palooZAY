@@ -19,13 +19,13 @@ const PromptTagAndContent = ({
   handleTagClick,
 }) => {
   const pathName = usePathname()
-  const router = useRouter()
 
   return (
     <>
       <p className={_.StyledPromptContentP}>{post.prompt}</p>
       <p
         className={_.StyledTagContentP}
+        style={{ cursor: 'pointer' }}
         onClick={() => {
           handleTagClick && handleTagClick(post.tag)
         }}
@@ -34,16 +34,13 @@ const PromptTagAndContent = ({
       </p>
       {session?.user.id === post.creator?._id &&
         pathName === SubLink.ACCOUNT && (
-          <div className='mt-5 flex-end gap-4  border-gray-100 pt-3'>
+          <div className={_.StyledTooltipWrapper}>
             <Tooltip content='Edit'>
-              <BiEditAlt
-                className='font-inter text-sm cursor-pointer text-white'
-                onClick={onEdit}
-              />
+              <BiEditAlt className={_.StyledEditTooltip} onClick={onEdit} />
             </Tooltip>
             <Tooltip content='Delete'>
               <RiDeleteBinLine
-                className='font-inter text-sm cursor-pointer text-red-500'
+                className={_.StyledTrashTooltip}
                 onClick={onDelete}
               />
             </Tooltip>

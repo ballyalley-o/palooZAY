@@ -10,7 +10,7 @@ import Toast from '@components/ToastContainer'
 //assets
 import { ToastContainer } from 'react-toastify'
 // constants
-import { GLOBAL } from '@config'
+import { GLOBAL, ASSETS } from '@config'
 
 export const metadata = META
 
@@ -26,17 +26,7 @@ const RootLayout = ({ children }) => {
             <div>{children}</div>
           </main>
           {/* @TODO */}
-          <ToastContainer
-            position='bottom-right'
-            autoClose={5000}
-            hideProgressBar
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-          />
+          <ToastContainer {...ASSETS.toast} />
         </Provider>
       </body>
     </html>

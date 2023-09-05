@@ -116,6 +116,10 @@
   @apply rounded-full border border-black bg-white py-1.5 px-5 text-black transition-all hover:bg-white hover:text-black text-center text-sm font-inter flex items-center justify-center;
 }
 
+.discard_btn {
+  @apply bg-transparent text-red-500 p-2 m-2;
+}
+
 .outline_btn {
   @apply rounded-full border border-white bg-transparent py-4 px-5 text-white transition-all hover:bg-black hover:text-white text-center text-sm font-inter flex items-center justify-center;
 }
@@ -164,8 +168,28 @@
   @apply my-4 font-satoshi text-xl text-gray-200;
 }
 
+.prompt_content-wrapper {
+  @apply mt-5 flex-end gap-4  border-gray-100 pt-3;
+}
+
 .prompt_content-email {
   @apply font-inter text-xs text-white italic opacity-50;
+}
+
+.prompt_card-trash {
+  @apply font-inter text-sm cursor-pointer text-red-500;
+}
+
+.prompt_card-edit {
+  @apply font-inter text-sm cursor-pointer text-white;
+}
+
+.prompt_card-tag {
+  @apply font-inter text-sm blue_gradient cursor-pointer;
+}
+
+.form_styled-textarea {
+  @apply text-red-500 text-2xl form_textarea;
 }
 /* Feed Component */
 .feed {
@@ -189,6 +213,9 @@
   @apply bg-white text-white;
 }
 
+.tooltip_wrapper {
+  @apply text-white;
+}
 /* Nav Component */
 .logo_text {
   @apply max-sm:hidden font-satoshi font-semibold text-lg text-black tracking-wide;
