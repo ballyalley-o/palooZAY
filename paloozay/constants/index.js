@@ -1,5 +1,4 @@
 export { default as BUTTONS } from '@constants/default'
-export { default as ASSETS } from '@constants/assets'
 export { default as MENU } from '@constants/menu'
 export { default as SNACKS } from '@constants/snacks'
 export { default as regEx } from '@constants/reg-ex'

@@ -18,6 +18,9 @@ const _types = {
   FEED: {
     search: 'What are you searching for?',
   },
+  ACCOUNT: {
+    description: 'Welcome to your Account',
+  },
 }
 
 export default _types

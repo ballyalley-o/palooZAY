@@ -1,18 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useSession } from 'next-auth/react'
+// styles
+import * as _ from '@theme/styles'
 import Image from 'next/image'
 // config
-import { GLOBAL } from '@config'
+import { ASSETS } from '@config'
 
 const NavAccountIcon = ({ setToggleMenu }) => {
   const { data: session } = useSession()
   return (
     <Image
-      src={session?.user.image}
-      {...GLOBAL.ACCOUNT_ICON_SIZE}
-      className='rounded-full'
-      alt='profile'
+      src={ASSETS.google.src(session)}
+      width={ASSETS.google.width}
+      height={ASSETS.google.height}
+      className={_.StyledLogo}
       onClick={() => {
         setToggleMenu((prev) => !prev)
       }}

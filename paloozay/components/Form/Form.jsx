@@ -43,9 +43,7 @@ const Form = ({ type, post, setPost, submit, onSubmit }) => {
       <FormLabel type={type} />
       <form onSubmit={onSubmit} action='' className={_.StyledForm}>
         <label htmlFor=''>
-          <span className='text-lighter text-base text-gray-200'>
-            PROMPT FORM
-          </span>
+          <span className={_.StyledFormLabelSpan}>PROMPT FORM</span>
           <textarea
             value={post.prompt}
             onChange={(e) => setPost({ ...post, prompt: e.target.value })}
@@ -57,9 +55,7 @@ const Form = ({ type, post, setPost, submit, onSubmit }) => {
 
         {/* tags */}
         <label htmlFor=''>
-          <span className='text-lighter text-base text-gray-200'>
-            TAGS (optional)
-          </span>
+          <span className={_.StyledFormLabelSpan}>TAGS (optional)</span>
           <HashTagInput
             value={input}
             onKeyPress={handleKeyPress}

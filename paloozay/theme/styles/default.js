@@ -1,16 +1,38 @@
 import classNames from 'classnames'
 
+/**
+ * @root { @app/account}
+ * ASSETS CLASSES
+ */
+export const StyledLoader = classNames('object-contain')
+export const StyledLoaderWrapper = classNames('w-full flex-center')
+export const StyledLogo = classNames('logo')
+
 export const StyledHome = classNames('_home')
 export const StyledHomeH2 = classNames('_home_main-h2')
 export const StyledHomeContainer = classNames('text-center')
 export const StyledHomeDescP = classNames('_home_desc-p')
+
+// components-------------------------------------------------------------------
+
+/**
+ * @root { @components/Logo}
+ */
+export const StyledLogoH1 = classNames('logo_nav')
+export const StyledLogoWrapperDiv = classNames('object-contain h-10 mt-5 mb-15')
+
+/**
+ * @root { @components/MainGradient}
+ */
+export const StyledMainDiv = classNames('main')
+export const StyledGradientDiv = classNames('gradient')
 
 /**
  * @root { @components/Prompt}
  */
 export const StyledPromptMainDiv = classNames('prompt_card')
 export const StyledPromptDiv = classNames(
-  'flex justify-between items-start gap-5 w-full'
+  'flex justify-between items-start gap-5 w-full '
 )
 export const StyledPromptWrapperDiv = classNames(
   'flex-1 flex justify-start items-center gap-3 cursor-pointer'
@@ -25,13 +47,9 @@ export const StyledPreTooltip = classNames('text-gray-200 btn')
 export const StyledPostTooltip = classNames('btn text-gray-100')
 
 export const StyledUserNameP = classNames('font-semibold vice')
-export const StyledEmailCardP = classNames(
-  'font-inter text-xs text-gray-200 italic opacity-10 text-light'
-)
+export const StyledEmailCardP = classNames('prompt_content-email')
 export const StyledPromptContentP = classNames('prompt_content')
-export const StyledTagContentP = classNames(
-  'font-inter text-sm text-gray-200 cursor-pointer'
-)
+export const StyledTagContentP = classNames()
 
 /**
  * @root { @components/Feed}
@@ -47,6 +65,7 @@ export const StyledForm = classNames('form_wrapper')
 export const StyledFormSection = classNames('form_section')
 export const StyledFormDiv = classNames('flex-end mx-3mb-5 gap-4')
 export const StyledFormLabelH1 = classNames('form_label-h1')
+export const StyledFormLabelSpan = classNames('form_label')
 export const StyledFormDescP = classNames('form_desc-p')
 export const StyledFormButton = classNames(
   'px-5 py-1.5 text-sm bg-primary-orange rounded-full text-white'

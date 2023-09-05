@@ -12,6 +12,7 @@ const SNACKS = {
       'Username must be 8-20 characters long and can only contain letters and numbers',
   },
   PROMPT: {
+    noId: 'No prompt id found',
     required: 'Prompt content is required',
     notFound: 'Prompts not found',
     found: 'Prompts found',

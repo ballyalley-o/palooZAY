@@ -11,6 +11,7 @@ import { Form } from '@components/Form'
 import { INITIAL_STATE } from '@constants'
 // utils
 import logger from '@utils/logger'
+import { toast } from 'react-toastify'
 
 const CreatePrompt = () => {
   const [submit, setSubmit] = useState(false)
@@ -34,6 +35,7 @@ const CreatePrompt = () => {
 
       if (response.ok) {
         router.push(PATH.home)
+        toast.success('Prompt created!')
       }
     } catch (error) {
       logger.error(error.message)

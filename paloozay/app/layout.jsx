@@ -7,6 +7,8 @@ import { Nav } from '@components/Nav'
 import MainGradient from '@components/MainGradient'
 import Provider from '@components/Provider'
 import Toast from '@components/ToastContainer'
+//assets
+import { ToastContainer } from 'react-toastify'
 // constants
 import { GLOBAL } from '@config'
 
@@ -23,7 +25,18 @@ const RootLayout = ({ children }) => {
             <Nav />
             <div>{children}</div>
           </main>
-          <Toast />
+          {/* @TODO */}
+          <ToastContainer
+            position='bottom-right'
+            autoClose={5000}
+            hideProgressBar
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
         </Provider>
       </body>
     </html>

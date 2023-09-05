@@ -7,7 +7,7 @@ import { PATH } from '@routes'
 // components
 import { Form } from '@components/Form'
 // constants
-import { INITIAL_STATE } from '@constants'
+import { INITIAL_STATE, SNACKS } from '@constants'
 // utils
 import logger from '@utils/logger'
 
@@ -32,7 +32,7 @@ const EditPrompt = () => {
     e.preventDefault()
     setSubmit(true)
 
-    if (!promptId) return alert('No prompt id found')
+    if (!promptId) return alert(SNACKS.PROMPT.noId)
 
     try {
       const response = await fetch(PATH.getPrompt(promptId), {

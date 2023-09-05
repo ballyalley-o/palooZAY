@@ -22,7 +22,6 @@ const GLOBAL = {
     user: process.env.MongoDB_USER,
     pass: process.env.MongoDB_PASS,
   },
-  ACCOUNT_ICON_SIZE: { width: 37, height: 37 },
 }
 
 export default GLOBAL

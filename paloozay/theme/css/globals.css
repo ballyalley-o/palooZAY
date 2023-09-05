@@ -100,6 +100,14 @@
 
 /* Tailwind Styles */
 
+.logo {
+  @apply rounded-full;
+}
+
+.logo_nav {
+  @apply border-2 text-xl text-gray-100 p-2;
+}
+
 .app {
   @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
 }
@@ -156,6 +164,9 @@
   @apply my-4 font-satoshi text-xl text-gray-200;
 }
 
+.prompt_content-email {
+  @apply font-inter text-xs text-white italic opacity-50;
+}
 /* Feed Component */
 .feed {
   @apply mt-16 mx-auto w-full max-w-xl flex justify-center items-center flex-col gap-2;
@@ -168,6 +179,10 @@
 
 .form_input {
   @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0 bg-transparent border border-gray-300;
+}
+
+.form_label {
+  @apply text-base text-gray-200;
 }
 
 .hr_update {

@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { useSession } from 'next-auth/react'
 import { signOut } from 'next-auth/react'
 // config
-import { GLOBAL } from '@config'
+import { ASSETS } from '@config'
 //routes
 import { PATH, SubLink } from '@routes'
 // styles
@@ -24,10 +24,10 @@ const NavMember = () => {
       </button>
       <Link href={SubLink.ACCOUNT}>
         <Image
-          src={session?.user.image}
-          {...GLOBAL.ACCOUNT_ICON_SIZE}
+          src={ASSETS.google.src(session)}
+          width={ASSETS.google.width}
+          height={ASSETS.google.height}
           className='rounded-full'
-          alt='profile'
         />
       </Link>
     </div>

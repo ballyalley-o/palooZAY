@@ -8,7 +8,7 @@ import { PATH } from '@routes'
 // components
 import { Account } from '@components/Account'
 // constants
-import { SNACKS } from '@constants'
+import { SNACKS, _types } from '@constants'
 // utils
 import logger from '@utils/logger'
 
@@ -72,7 +72,7 @@ const MyAccount = () => {
   return (
     <Account
       name={User?.username}
-      content='Welcome to your Account'
+      content={_types.ACCOUNT.description}
       data={feed}
       onEdit={handleEdit}
       onDelete={handleDelete}
