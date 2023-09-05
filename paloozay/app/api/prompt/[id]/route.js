@@ -55,7 +55,7 @@ export const PATCH = async (req, { params }) => {
   } catch (error) {
     logger.error(error.message)
 
-    return new Response('Internal Server Error', { status: 500 })
+    return new Response(SNACKS.ERROR[500], { status: 500 })
   }
 }
 
@@ -69,6 +69,6 @@ export const DELETE = async (req, { params }) => {
     })
   } catch (error) {
     logger.error(error)
-    return new Response('Internal Server Error', { status: 500 })
+    return new Response(SNACKS.ERROR[500], { status: 500 })
   }
 }

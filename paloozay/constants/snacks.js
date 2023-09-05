@@ -26,6 +26,12 @@ const SNACKS = {
   TAG: {
     required: 'Atleast 1 Tag is required',
   },
+
+  ERROR: {
+    500: 'Internal Server Error',
+    404: 'Not Found',
+    403: 'Forbidden',
+  },
 }
 
 export default SNACKS

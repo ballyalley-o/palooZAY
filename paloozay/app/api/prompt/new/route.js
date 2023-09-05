@@ -21,6 +21,6 @@ export const POST = async (req) => {
     })
   } catch (error) {
     logger.error(error.message)
-    return new Response('Internal Server Error', { status: 500 })
+    return new Response(SNACKS.ERROR[500], { status: 500 })
   }
 }
