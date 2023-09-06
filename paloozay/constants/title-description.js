@@ -1,6 +1,11 @@
 import TextLaborate from '@components/TextLaborate'
 
 const _types = {
+  MAIN: {
+    main: 'EASY',
+    sub: 'AI',
+    dub: 'PROMPTS',
+  },
   HOME: {
     title: (title) => `EASY ${(<TextLaborate text={title} />)} PROMPTS`,
     description: 'AI powered Cues for faster queueing',

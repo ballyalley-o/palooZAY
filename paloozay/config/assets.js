@@ -3,6 +3,9 @@ import * as _ from '@theme/styles'
 
 export const ASSETS = {
   // logo
+  _pub: {
+    ico: '../assets/icons/paloozay.ico',
+  },
   main: {
     src: '/assets/images/logo.svg',
     width: 15,

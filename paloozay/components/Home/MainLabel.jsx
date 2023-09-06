@@ -6,11 +6,11 @@ import TextLaborate from '@components/TextLaborate'
 const MainLabel = () => {
   return (
     <span>
-      <h2 className={_.StyledHomeH2}>EASY</h2>
+      <h2 className={_.StyledHomeH2}>{_types.MAIN.main}</h2>
       <h2 className={_.StyledHomeH2}>
-        <TextLaborate text='AI' />
+        <TextLaborate text={_types.MAIN.sub} />
       </h2>
-      <h2 className={_.StyledHomeH2}>PROMPTS</h2>
+      <h2 className={_.StyledHomeH2}>{_types.MAIN.dub}</h2>
     </span>
   )
 }
