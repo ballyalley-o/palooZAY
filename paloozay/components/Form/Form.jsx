@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import Link from 'next/link'
 // components
-import { FormButtons, HashTagInput, FormLabel } from '@components/Form'
+import { FormButtons, FormLabel, FormPrompt, FormTag } from '@components/Form'
 // styles
 import * as _ from '@theme/styles'
 // constants
@@ -42,27 +41,14 @@ const Form = ({ type, post, setPost, submit, onSubmit }) => {
     <section className={_.StyledFormSection}>
       <FormLabel type={type} />
       <form onSubmit={onSubmit} action='' className={_.StyledForm}>
-        <label htmlFor='prompt'>
-          <span className={_.StyledFormLabelSpan}>PROMPT FORM</span>
-          <textarea
-            id='prompt'
-            value={post.prompt}
-            onChange={(e) => setPost({ ...post, prompt: e.target.value })}
-            placeholder={SNACKS.PROMPT.placeholder}
-            required
-            className={_.StyledFormTextarea}
-          />
-        </label>
-
-        {/* tags */}
-        <label htmlFor=''>
-          <span className={_.StyledFormLabelSpan}>TAGS</span>
-          <HashTagInput
-            value={input}
-            onKeyPress={handleKeyPress}
-            onChange={handleOnChange}
-          />
-        </label>
+        {/* prompt */}
+        <FormPrompt post={post} onSubmit={setPost} />
+        {/* tag */}
+        <FormTag
+          input={input}
+          onKeyPress={handleKeyPress}
+          onChange={handleOnChange}
+        />
         <FormButtons submit={submit} type={type} />
       </form>
     </section>

@@ -21,6 +21,12 @@ const _types = {
   ACCOUNT: {
     description: 'Welcome to your Account',
   },
+  PROMPT: {
+    title: 'PROMPT FORM',
+  },
+  TAGS: {
+    title: 'TAGS',
+  },
 }
 
 export default _types

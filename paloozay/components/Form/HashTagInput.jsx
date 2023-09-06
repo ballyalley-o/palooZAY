@@ -1,9 +1,10 @@
 import { useState } from 'react'
 
-const HashTagInput = ({ value, onChange, onKeyPress }) => {
+const HashTagInput = ({ id, value, onChange, onKeyPress }) => {
   return (
     <div>
       <input
+        id={id}
         type='text'
         value={value}
         onChange={onChange}
