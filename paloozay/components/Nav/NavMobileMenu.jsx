@@ -12,7 +12,7 @@ import { BUTTONS, MENU } from '@constants'
 
 const NavMobileMenu = ({ setToggleMenu, provider }) => {
   return (
-    <div className='dropdown'>
+    <div className={_.StyledMenuDropdown}>
       <Link
         href={SubLink.ACCOUNT}
         className={_.StyledMenuDropdownLink}

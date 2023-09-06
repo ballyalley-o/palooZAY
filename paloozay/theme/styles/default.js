@@ -30,6 +30,8 @@ export const StyledGradientDiv = classNames('gradient')
 /**
  * @root { @components/Prompt}
  */
+export const StyledMenuDropdown = classNames('dropdown')
+export const StyledPromptListDiv = classNames('prompt_wrapper-div')
 export const StyledPromptMainDiv = classNames('prompt_card')
 export const StyledPromptDiv = classNames(
   'flex justify-between items-start gap-5 w-full '

@@ -1,6 +1,8 @@
 import React from 'react'
 // components
 import { Prompt } from '@components/Prompt'
+// styles
+import { StyledPromptListDiv } from '@theme/styles'
 
 /**
  *
@@ -10,7 +12,7 @@ import { Prompt } from '@components/Prompt'
  */
 const PromptList = ({ data, onChange, handleTagClick }) => {
   return (
-    <div className='mt-16 prompt_layout'>
+    <div className={StyledPromptListDiv}>
       {data.map((feed) => (
         <Prompt
           key={feed._id}

@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useSession } from 'next-auth/react'
 // components

@@ -301,6 +301,10 @@
   @apply ml-2 flex flex-col;
 }
 
+.prompt_wrapper-div {
+  @apply mt-16 prompt_layout;
+}
+
 .flex-center {
   @apply flex justify-center items-center;
 }

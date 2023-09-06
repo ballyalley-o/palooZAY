@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Link from 'next/link'
 // components
-import Image from 'next/image'
 import { AccountIcon } from '@components/Account'
 // styles
 import * as _ from '@theme/styles'
