@@ -12,7 +12,7 @@ import * as _ from '@theme/styles'
 const Account = ({ name, content, data, onEdit, onDelete }) => {
   return (
     <ProtectedRoute>
-      <section className=''>
+      <section>
         <AccountTitleAndDesc name={name} content={content} />
         <AccountPromptWrapper>
           {data.map((feed) => (

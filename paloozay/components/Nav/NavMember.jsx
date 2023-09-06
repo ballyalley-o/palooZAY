@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useSession } from 'next-auth/react'
 import { signOut } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
+import { useRouter, usePathname } from 'next/navigation'
 // config
 import { ASSETS } from '@config'
 //routes
@@ -16,8 +16,9 @@ import { BUTTONS } from '@constants'
 const NavMember = () => {
   const { data: session } = useSession()
   const router = useRouter()
+  const pathname = usePathname()
 
-  const disabled = router.pathname === PATH.create
+  const disabled = pathname === PATH.createPrompt
 
   return (
     <div className={_.StyledMenuWrapperDiv}>
@@ -25,7 +26,7 @@ const NavMember = () => {
         href={PATH.createPrompt}
         className={_.StyledPromptLink}
         style={{
-          display: disabled ? 'none' : 'block',
+          display: disabled ? 'none' : 'flex',
         }}
       >
         {BUTTONS.CREATE_PROMPT}

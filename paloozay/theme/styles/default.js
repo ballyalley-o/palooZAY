@@ -34,7 +34,7 @@ export const StyledMenuDropdown = classNames('dropdown')
 export const StyledPromptListDiv = classNames('prompt_wrapper-div')
 export const StyledPromptMainDiv = classNames('prompt_card')
 export const StyledPromptDiv = classNames(
-  'flex justify-between items-start gap-5 w-full '
+  'flex justify-between items-start gap-5 w-full'
 )
 export const StyledPromptWrapperDiv = classNames(
   'flex-1 flex justify-start items-center gap-3 cursor-pointer'
@@ -60,7 +60,7 @@ export const StyledTagContentP = classNames('prompt_card-tag ')
 /**
  * @root { @components/Feed}
  */
-export const StyledFeedForm = classNames('relative w-full flex-center')
+export const StyledFeedForm = classNames('search_bar-feed')
 export const StyledFeedInput = classNames('search_input peer')
 export const StyledFeed = classNames('feed')
 
