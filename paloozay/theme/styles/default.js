@@ -41,7 +41,7 @@ export const StyledPromptWrapperDiv = classNames(
 )
 
 export const StyledContentWrapperDiv = classNames('prompt_detail-div')
-export const StyledImage = classNames('rounded-full object-contain')
+export const StyledImage = classNames('account_icon')
 export const StyledTooltipWrapper = classNames('prompt_content-wrapper')
 export const StyledTrashTooltip = classNames('prompt_card-trash')
 export const StyledEditTooltip = classNames('prompt_card-edit')

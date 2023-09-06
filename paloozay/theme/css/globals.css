@@ -261,6 +261,10 @@
   @apply sm:hidden flex relative;
 }
 
+.account_icon {
+  @apply rounded-full object-contain;
+}
+
 .account_name {
   @apply head_text text-left blue_gradient;
 }
