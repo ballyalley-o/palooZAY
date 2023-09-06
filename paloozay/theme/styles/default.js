@@ -6,7 +6,7 @@ import classNames from 'classnames'
  */
 export const StyledLoader = classNames('object-contain')
 export const StyledLoaderWrapper = classNames('w-full flex-center')
-export const StyledLogo = classNames('logo')
+export const StyledLogo = classNames('logo rounded-full')
 
 export const StyledHome = classNames('_home')
 export const StyledHomeH2 = classNames('_home_main-h2')
@@ -86,7 +86,11 @@ export const StyledWrapperDiv = classNames('nav_mobile_wrapper')
 export const StyledMenuWrapperDiv = classNames('nav_wrapper_btn')
 export const StyledMobileMenuBtn = classNames('mt-5 w-full outline_btn')
 export const StyledSignOutBtn = classNames('nav_signOut')
+export const StyledSignedInDiv = classNames('outline_btn')
 export const StyledMobileDiv = classNames('nav_mobile')
+export const StyledPromptLink = classNames('black_btn')
+export const StyledAccountLink = classNames('black_btn')
+export const StyledMenuDropdownLink = classNames('dropdown_link')
 
 /**
  * @root { @components/Account}

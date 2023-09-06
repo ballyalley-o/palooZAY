@@ -16,7 +16,7 @@ const _types = {
     button: 'CREATE',
   },
   EDIT: {
-    label: (type) => `${type} & <b>ZAY</b> IT!`,
+    label: (type) => `${type} & ZAY IT!`,
     description: 'Edit your Prompt, ZAY IT AGAIN!',
     button: 'EDIT',
   },
@@ -31,6 +31,10 @@ const _types = {
   },
   TAGS: {
     title: 'TAGS',
+  },
+  PAGES: {
+    create: 'CREATE',
+    edit: 'EDIT',
   },
 }
 

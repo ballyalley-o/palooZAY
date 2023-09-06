@@ -13,7 +13,7 @@ const AuthButton = ({ provider, onClick, content, signIn }) => {
         type='button'
         key={signIn && provider.id}
         onClick={() => onClick(provider)}
-        className={!signIn ? _.StyledSignOutBtn : 'outline_btn'}
+        className={!signIn ? _.StyledSignOutBtn : _.StyledSignedInDiv}
       >
         {content || BUTTONS.SIGN_IN}
       </button>
@@ -25,6 +25,7 @@ AuthButton.propTypes = {
   provider: PropTypes.object,
   onClick: PropTypes.func,
   signIn: PropTypes.bool,
+  disabled: PropTypes.bool,
 }
 
 AuthButton.defaultProps = {

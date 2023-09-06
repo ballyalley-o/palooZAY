@@ -5,7 +5,7 @@ import { FormButtons, FormLabel, FormPrompt, FormTag } from '@components/Form'
 // styles
 import * as _ from '@theme/styles'
 // constants
-import { _types, SNACKS } from '@constants'
+import { _types } from '@constants'
 
 const Form = ({ type, post, setPost, submit, onSubmit }) => {
   const [input, setInput] = useState(post.tag || '')

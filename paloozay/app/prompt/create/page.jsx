@@ -8,7 +8,7 @@ import { PATH } from '@routes'
 // components
 import { Form } from '@components/Form'
 // constants
-import { INITIAL_STATE } from '@constants'
+import { INITIAL_STATE, _types } from '@constants'
 // utils
 import logger from '@utils/logger'
 import { toast } from 'react-toastify'
@@ -46,7 +46,7 @@ const CreatePrompt = () => {
 
   return (
     <Form
-      type='CREATE'
+      type={_types.PAGES.create}
       post={post}
       setPost={setPost}
       submit={submit}

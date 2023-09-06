@@ -11,6 +11,7 @@ const NavAccountIcon = ({ setToggleMenu }) => {
   const { data: session } = useSession()
   return (
     <Image
+      alt='google_logo'
       src={ASSETS.google.src(session)}
       width={ASSETS.google.width}
       height={ASSETS.google.height}

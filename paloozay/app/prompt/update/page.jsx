@@ -7,9 +7,10 @@ import { PATH } from '@routes'
 // components
 import { Form } from '@components/Form'
 // constants
-import { INITIAL_STATE, SNACKS } from '@constants'
+import { INITIAL_STATE, SNACKS, _types } from '@constants'
 // utils
 import logger from '@utils/logger'
+import { toast } from 'react-toastify'
 
 const EditPrompt = () => {
   const [submit, setSubmit] = useState(false)
@@ -44,6 +45,7 @@ const EditPrompt = () => {
       })
 
       if (response.ok) {
+        toast.success(SNACKS.PROMPT.updated)
         router.push(PATH.home)
       }
     } catch (error) {
@@ -55,7 +57,7 @@ const EditPrompt = () => {
 
   return (
     <Form
-      type='EDIT'
+      type={_types.PAGES.edit}
       post={post}
       setPost={setPost}
       submit={submit}
