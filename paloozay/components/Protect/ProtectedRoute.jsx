@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import { PATH } from '@routes'
 
 const ProtectedRoute = ({ children }) => {
-  const { data: session, status } = useSession()
+  const { data: session } = useSession()
   const router = useRouter()
 
   if (!session?.user) {

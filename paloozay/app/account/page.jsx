@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useSession } from 'next-auth/react'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 // routes
 import { PATH } from '@routes'
 // components
@@ -22,7 +22,8 @@ const MyAccount = () => {
     router.push(PATH.updatePrompt(Feed._id))
   }
   const handleDelete = async (Feed) => {
-    const confirmed = confirm(SNACKS.CONFIRM.delete_prompt)
+    // const confirmed = confirm(SNACKS.CONFIRM.delete_prompt)
+    // const confirmed = true
 
     if (confirmed) {
       try {

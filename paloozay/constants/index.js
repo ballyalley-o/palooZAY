@@ -1,6 +1,7 @@
 export { default as BUTTONS } from '@constants/default'
 export { default as MENU } from '@constants/menu'
 export { default as SNACKS } from '@constants/snacks'
-export { default as regEx } from '@constants/reg-ex'
 export { default as INITIAL_STATE } from '@constants/initial-state'
+export { default as DIALOGS } from '@constants/dialogs'
 export { default as _types } from '@constants/title-description'
+export { default as regEx } from '@constants/reg-ex'

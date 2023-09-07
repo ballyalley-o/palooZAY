@@ -1,15 +1,18 @@
 'use client'
 
-import { useSession } from 'next-auth/react'
 // components
 import { ProtectedRoute } from '@components/Protect'
 import { Prompt } from '@components/Prompt'
 import { AccountTitleAndDesc, AccountPromptWrapper } from '@components/Account'
+// hooks
+import { useDialog } from '@hooks/use-confirmDialog'
 // styles
 import * as _ from '@theme/styles'
 // constants
 
 const Account = ({ name, content, data, onEdit, onDelete }) => {
+  // const { pathname } = useLocation()
+  const { renderDialog, setOpen } = useDialog()
   return (
     <ProtectedRoute>
       <section>
@@ -20,10 +23,14 @@ const Account = ({ name, content, data, onEdit, onDelete }) => {
               key={feed._id}
               post={feed}
               onEdit={() => onEdit && onEdit(feed)}
-              onDelete={() => onDelete && onDelete(feed)}
+              onDelete={() => {
+                onDelete && onDelete(feed)
+                setOpen(true)
+              }}
             />
           ))}
         </AccountPromptWrapper>
+        {onDelete && renderDialog('DELETE')}
       </section>
     </ProtectedRoute>
   )
