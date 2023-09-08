@@ -5,7 +5,7 @@ import { ProtectedRoute } from '@components/Protect'
 import { Prompt } from '@components/Prompt'
 import { AccountTitleAndDesc, AccountPromptWrapper } from '@components/Account'
 // hooks
-import { useDialog } from '@hooks/use-confirmDialog'
+import { useDialog } from '@hooks/use-dialog'
 // styles
 import * as _ from '@theme/styles'
 // constants

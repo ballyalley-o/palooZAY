@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
 //components
-import { Dialog } from '@components/Dialog'
+import { Dialog } from '@hooks/use-dialog'
 // constants
 import { DIALOGS } from '@constants'
 

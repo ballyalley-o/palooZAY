@@ -157,7 +157,7 @@
 }
 
 .desc {
-  @apply mt-5 text-lg text-gray-600 sm:text-xl max-w-2xl;
+  @apply mt-5 text-xl text-gray-200 sm:text-xl max-w-4xl;
 }
 
 .search_input {
@@ -286,7 +286,7 @@
 }
 
 .account_content-p {
-  @apply desc text-left border-t text-white mb-2;
+  @apply desc text-left border-t font-light text-gray-100 mb-2;
 }
 
 .account_prompt-div {

@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
+// hooks
+import { useDialog } from '@hooks/use-dialog'
 // routes
 import { PATH } from '@routes'
 // components
@@ -17,6 +19,7 @@ const MyAccount = () => {
   const [userData, setUserData] = useState(null)
   const { data: session } = useSession()
   const router = useRouter()
+  const { setOpen } = useDialog()
 
   const handleEdit = (Feed) => {
     router.push(PATH.updatePrompt(Feed._id))
@@ -25,14 +28,14 @@ const MyAccount = () => {
     // const confirmed = confirm(SNACKS.CONFIRM.delete_prompt)
     // const confirmed = true
 
-    if (confirmed) {
+    if (setOpen) {
       try {
         await fetch(PATH.deletePrompt(Feed._id), {
           method: 'DELETE',
         })
 
         const filteredFeed = feed.filter((post) => post._id !== Feed._id)
-
+        setOpen()
         setFeed(filteredFeed)
       } catch (error) {
         logger.error(error.message)
