@@ -1,6 +1,6 @@
 import { connectToDb } from '@utils/db'
 // schema
-import Prompt from '@models/prompt'
+import { Prompt } from '@models/Prompt'
 // utils
 import logger from '@utils/logger'
 

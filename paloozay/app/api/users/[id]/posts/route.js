@@ -1,5 +1,5 @@
 import { connectToDb } from '@utils/db'
-import Prompt from '@models/prompt'
+import { Prompt } from '@models/Prompt'
 // utils
 import logger from '@utils/logger'
 // constants
