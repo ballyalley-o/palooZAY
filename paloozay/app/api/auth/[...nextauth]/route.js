@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 // schemma
-import { User } from '@models'
+import { User } from '@models/User'
 // global
 import { GLOBAL } from '@config'
 // db
