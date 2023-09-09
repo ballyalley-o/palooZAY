@@ -12,7 +12,6 @@ const ProtectedRoute = ({ children }) => {
   if (!session?.user) {
     return router.push(PATH.home)
   }
-
   return children
 }
 

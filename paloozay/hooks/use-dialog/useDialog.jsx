@@ -7,22 +7,35 @@ import { DIALOGS } from '@constants'
 
 const useDialog = () => {
   const [open, setOpen] = useState(false)
-  const renderDialog = ({ _type }) => {
+
+  const showDialog = () => {
+    setOpen(true)
+  }
+
+  const hideDialog = () => {
+    setOpen(false)
+  }
+
+  const renderDialog = (_type, onClick) => {
     return (
-      <Dialog
-        handleOpen={open}
-        handleClose={() => setOpen(false)}
-        content={DIALOGS[_type]?.content}
-        title={DIALOGS[_type]?.title}
-        close={DIALOGS[_type]?.close}
-      />
+      open && (
+        <Dialog
+          onClick={onClick}
+          handleClose={hideDialog}
+          content={DIALOGS[_type]?.content}
+          title={DIALOGS[_type]?.title}
+          confirm={DIALOGS[_type]?.confirm}
+          close={DIALOGS[_type]?.close}
+        />
+      )
     )
   }
-  return { renderDialog, setOpen }
+  return { showDialog, hideDialog, renderDialog, open }
 }
 
 useDialog.propTypes = {
   _type: PropTypes.string,
+  onClick: PropTypes.func,
 }
 
 export default useDialog

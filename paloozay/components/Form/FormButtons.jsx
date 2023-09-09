@@ -11,10 +11,7 @@ import { BUTTONS } from '@constants'
 const FormButtons = ({ submit, type }) => {
   return (
     <div className={_.StyledFormDiv}>
-      <Link
-        href={PATH.home}
-        className='border border-red-900 bg-transparent text-red-500 p-2 m-2'
-      >
+      <Link href={PATH.home} className={_.StyledFormCancelButton}>
         {BUTTONS.FORM.CANCEL}
       </Link>
       <button type='submit' disabled={submit} className={_.StyledFormButton}>

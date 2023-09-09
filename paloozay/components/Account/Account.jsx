@@ -1,5 +1,6 @@
 'use client'
 
+import PropTypes from 'prop-types'
 // components
 import { ProtectedRoute } from '@components/Protect'
 import { Prompt } from '@components/Prompt'
@@ -12,7 +13,6 @@ import * as _ from '@theme/styles'
 
 const Account = ({ name, content, data, onEdit, onDelete }) => {
   // const { pathname } = useLocation()
-  const { renderDialog, setOpen } = useDialog()
   return (
     <ProtectedRoute>
       <section>
@@ -25,15 +25,22 @@ const Account = ({ name, content, data, onEdit, onDelete }) => {
               onEdit={() => onEdit && onEdit(feed)}
               onDelete={() => {
                 onDelete && onDelete(feed)
-                setOpen(true)
               }}
             />
           ))}
         </AccountPromptWrapper>
-        {onDelete && renderDialog('DELETE')}
       </section>
     </ProtectedRoute>
   )
+}
+
+Account.propTypes = {
+  name: PropTypes.string,
+  content: PropTypes.string,
+  data: PropTypes.array,
+  onEdit: PropTypes.func,
+  onDelete: PropTypes.func,
+  setOpen: PropTypes.func,
 }
 
 export default Account

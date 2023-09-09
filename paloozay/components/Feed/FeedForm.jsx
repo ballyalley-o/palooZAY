@@ -6,7 +6,7 @@ import { _types } from '@constants'
 
 const FeedForm = ({ value, onChange }) => {
   return (
-    <form className='relative w-full flex-center'>
+    <form className={_.StyledFeedForm}>
       <input
         required
         type='text'
