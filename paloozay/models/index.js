@@ -1,2 +1,2 @@
-export { default as User } from '@models/User'
-export { default as Prompt } from '@models/Prompt'
+export { default as User } from '@models/User.js'
+export { default as Prompt } from '@modls/Prompt.js'

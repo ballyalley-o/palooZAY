@@ -21,27 +21,6 @@ const MyAccount = () => {
   const router = useRouter()
   const { renderDialog, showDialog, open } = useDialog()
 
-  const handleEdit = (Feed) => {
-    router.push(PATH.updatePrompt(Feed._id))
-  }
-
-  const handleDelete = async (Feed) => {
-    try {
-      await fetch(PATH.deletePrompt(Feed._id), {
-        method: 'DELETE',
-      })
-      const filteredFeed = feed.filter((post) => post._id !== Feed._id)
-      setFeed(filteredFeed)
-      showDialog(false)
-    } catch (error) {
-      logger.error(error.message)
-    }
-  }
-
-  const handleSendConfirmation = () => {
-    showDialog()
-  }
-
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await fetch(PATH.user_posts(session?.user.id))
@@ -70,7 +49,32 @@ const MyAccount = () => {
     }
   }, [feed])
 
+  const handleEdit = (Feed) => {
+    router.push(PATH.updatePrompt(Feed._id))
+  }
+
+  const handleDelete = async (Feed) => {
+    try {
+      await fetch(PATH.deletePrompt(Feed._id), {
+        method: 'DELETE',
+      })
+      const filteredFeed = feed.filter((post) => post._id !== Feed._id)
+      setFeed(filteredFeed)
+      showDialog(false)
+    } catch (error) {
+      logger.error(error.message)
+    }
+  }
+
+  const handleSendConfirmation = (Feed) => {
+    showDialog()
+    console.log(FeedId, 'FeedId')
+    console.log(Feed._id, 'Feed._id')
+    // renderDialog('DELETE', () => handleDelete(Feed))
+  }
+
   const User = userData?.find((i) => i._id === session?.user.id)
+  const FeedId = feed?.filter((i) => i.prompt?._id === feed?._id)
 
   return (
     <>
@@ -81,7 +85,7 @@ const MyAccount = () => {
         onEdit={handleEdit}
         onDelete={handleSendConfirmation}
       />
-      {open && renderDialog('DELETE', handleDelete)}
+      {open && renderDialog('DELETE', () => handleDelete(FeedId))}
     </>
   )
 }

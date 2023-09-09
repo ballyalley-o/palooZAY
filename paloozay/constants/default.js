@@ -4,7 +4,7 @@ const BUTTONS = {
   SIGN_IN: 'Sign In',
   SIGN_OUT: 'Sign Out',
   FORM: {
-    SUBMIT: (submit, type) => (submit ? `CONFIRM ${type}` : type),
+    SUBMIT: (submit, type) => (submit ? 'Loading...' : type),
     CANCEL: 'DISCARD',
   },
 }

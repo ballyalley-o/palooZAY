@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
+// components
+import Loading from '@components/Default/Loading'
 // route
 import { PATH } from '@routes'
 // styles
@@ -15,7 +17,7 @@ const FormButtons = ({ submit, type }) => {
         {BUTTONS.FORM.CANCEL}
       </Link>
       <button type='submit' disabled={submit} className={_.StyledFormButton}>
-        {BUTTONS.FORM.SUBMIT(submit, type)}
+        {submit ? <Loading /> : BUTTONS.FORM.SUBMIT(submit, type)}
       </button>
     </div>
   )

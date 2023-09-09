@@ -19,12 +19,6 @@ const Dialog = ({
       handleOpen()
     }
   }
-
-  // const handleConfirm = () => {
-  //   setValue(true)
-  //   setOpen(false)
-  // }
-
   const handleCloseClick = () => {
     setOpen(false)
     if (handleClose) {
@@ -41,7 +35,7 @@ const Dialog = ({
       <div className=''>
         <div className='dialog-wrapper '>
           <div className='gap-3'>{content}</div>
-          <button className='dialog-close' onClick={onClick}>
+          <button className='dialog-close' type='button' onClick={onClick}>
             {confirm}
           </button>
           <button
