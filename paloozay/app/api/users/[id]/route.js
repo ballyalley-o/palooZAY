@@ -1,5 +1,5 @@
 import { connectToDb } from '@utils/db'
-import { User } from '@models/User'
+import User from '@models/user'
 // utils
 import logger from '@utils/logger'
 // constants

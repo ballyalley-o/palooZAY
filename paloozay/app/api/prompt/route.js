@@ -1,5 +1,5 @@
 import { connectToDb } from '@utils/db'
-import { Prompt } from '@models/Prompt'
+import Prompt from '@models/prompt'
 // assets
 // utils
 import logger from '@utils/logger'
