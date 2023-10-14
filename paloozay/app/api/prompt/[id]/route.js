@@ -1,5 +1,5 @@
 import { connectToDb } from '@utils/db'
-import { Prompt } from '@models/prompt'
+import Prompt from '@models/prompt'
 // assets
 // utils
 import logger from '@utils/logger'
@@ -31,10 +31,9 @@ export const GET = async (req, { params }) => {
 
 export const PATCH = async (req, { params }) => {
   const { prompt, tag } = await req.json()
-
+  console.log(prompt)
   try {
     await connectToDb()
-
     const updatePrompt = await Prompt.findById(params.id)
 
     if (!updatePrompt) {

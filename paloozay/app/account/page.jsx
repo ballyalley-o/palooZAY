@@ -36,6 +36,7 @@ const MyAccount = () => {
   }, [])
 
   useEffect(() => {
+    console.log(feed, 'FEED ARR')
     const fetchUser = async () => {
       const response = await fetch(PATH.users(session?.user.id.toString()))
       const data = await response.json()
@@ -54,27 +55,38 @@ const MyAccount = () => {
   }
 
   const handleDelete = async (Feed) => {
-    try {
-      await fetch(PATH.deletePrompt(Feed._id), {
-        method: 'DELETE',
-      })
-      const filteredFeed = feed.filter((post) => post._id !== Feed._id)
-      setFeed(filteredFeed)
-      showDialog(false)
-    } catch (error) {
-      logger.error(error.message)
+    const FeedId = feed?.find((i) => i._id === Feed._id)
+    showDialog()
+    renderDialog('DELETE', () => handleDeletePrompt(Feed))
+
+    // confirm delete in d
+    // const FeedId = feed?.find((i) => i.prompt?._id === Feed?._id)
+
+    if (showDialog && FeedId?._id) {
+      try {
+        await fetch(PATH.deletePrompt(Feed._id), {
+          method: 'DELETE',
+        })
+        const filteredFeed = feed.filter((post) => post._id !== Feed._id)
+        setFeed(filteredFeed)
+        showDialog(false)
+      } catch (error) {
+        logger.error(error.message)
+      }
     }
   }
 
-  const handleSendConfirmation = (Feed) => {
-    showDialog()
-    console.log(FeedId, 'FeedId')
-    console.log(Feed._id, 'Feed._id')
-    // renderDialog('DELETE', () => handleDelete(Feed))
-  }
+  // const handleSendConfirmation = (Feed) => {
+  //   showDialog()
+
+  //   // renderDialog('DELETE', () => handleDelete(Feed))
+  // }
+
+  // const handleDeletePrompt = async (Feed) => {
+
+  // }
 
   const User = userData?.find((i) => i._id === session?.user.id)
-  const FeedId = feed?.filter((i) => i.prompt?._id === feed?._id)
 
   return (
     <>
@@ -83,9 +95,9 @@ const MyAccount = () => {
         content={_types.ACCOUNT.description}
         data={feed}
         onEdit={handleEdit}
-        onDelete={handleSendConfirmation}
+        onDelete={handleDelete}
       />
-      {open && renderDialog('DELETE', () => handleDelete(FeedId))}
+      {open && renderDialog('DELETE')}
     </>
   )
 }
