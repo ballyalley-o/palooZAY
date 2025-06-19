@@ -15,12 +15,12 @@ const GLOBAL = {
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
   },
   MONGODB: {
-    uri: process.env.MongoDB_URI,
-    db: process.env.MongoDB_DB,
-    host: process.env.MongoDB_HOST,
-    // port: process.env.MongoDB_PORT,
-    user: process.env.MongoDB_USER,
-    pass: process.env.MongoDB_PASS,
+    uri: process.env.DB_URI,
+    db: process.env.DB,
+    host: process.env.DB_HOST,
+      // port: process.env.MongoDB_PORT,
+    user: process.env.DB_USER,
+    pass: process.env.DB_PASS,
   },
 }
 

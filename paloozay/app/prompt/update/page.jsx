@@ -23,7 +23,7 @@ const EditPrompt = () => {
     const fetchPrompt = async () => {
       const response = await fetch(PATH.getPrompt(promptId))
       const data = await response.json()
-
+      
       setPost({ prompt: data.prompt, tag: data.tag })
     }
     if (promptId) fetchPrompt()
