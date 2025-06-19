@@ -1,9 +1,7 @@
 import { connectToDb } from '@utils/db'
 import Prompt from '@models/prompt'
-// assets
 // utils
 import logger from '@utils/logger'
-import { toast } from 'react-toastify'
 // constants
 import { SNACKS } from '@constants'
 
