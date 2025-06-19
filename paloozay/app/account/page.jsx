@@ -10,7 +10,7 @@ import { PATH } from '@routes'
 // components
 import { Account } from '@components/Account'
 // constants
-import { SNACKS, _types } from '@constants'
+import { _types } from '@constants'
 // utils
 import logger from '@utils/logger'
 
@@ -75,16 +75,6 @@ const MyAccount = () => {
       }
     }
   }
-
-  // const handleSendConfirmation = (Feed) => {
-  //   showDialog()
-
-  //   // renderDialog('DELETE', () => handleDelete(Feed))
-  // }
-
-  // const handleDeletePrompt = async (Feed) => {
-
-  // }
 
   const User = userData?.find((i) => i._id === session?.user.id)
 
